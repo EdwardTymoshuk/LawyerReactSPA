@@ -6,9 +6,9 @@ import Header from './components/Header/Header';
 
 const App = () => {
   return (
-    <div className="App container-fluid">
-      <Header className="App-header container-fluid"/>
-       <Body className="container-fluid"/>
+    <div className="App">
+      <Header />
+      <Body />
     </div>
   );
 }

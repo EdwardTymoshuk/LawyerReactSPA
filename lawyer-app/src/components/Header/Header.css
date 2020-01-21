@@ -1,4 +1,13 @@
 .header {
-    background-color: #282c34;
+    background-color: #4C212A;
     height: 100px;
+    margin: 0;
+    padding: 0;
+    align-content: center;
+}
+.header-button {
+    color: #F4FFF8;
+}
+.header-button:hover {
+    color: #8BAAAD;
 }
