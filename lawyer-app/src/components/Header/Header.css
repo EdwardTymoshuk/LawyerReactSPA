@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
     align-content: center;
+    display: grid;
 }
 .header-button {
     color: #F4FFF8;
