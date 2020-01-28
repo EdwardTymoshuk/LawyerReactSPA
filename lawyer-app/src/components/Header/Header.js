@@ -9,7 +9,7 @@ const Header = (props) => {
             <div className="container-fluid header">
                 
                 <button type="button" className="btn btn-link btn-lg header-button">
-                <NavLink to="/home">
+                <NavLink to="/">
                     <FontAwesomeIcon icon={faPowerOff} size="2x" />
                     </NavLink>
                 </button>

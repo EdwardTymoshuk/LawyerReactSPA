@@ -1,16 +1,18 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.css';
+import store from './redux/state';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import App from './App';
-import store from '../src/components/redux/redux-store'
-import {BrowserRouter} from 'react-router-dom';
-import {Provider} from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 
+let rerenderEntireTree = () => {
 ReactDOM.render(
     <BrowserRouter>
-        <Provider store={store}>
-            <App />
-        </Provider>
-    </BrowserRouter>, document.getElementById('root'));
-
+        <App store={store} />
+        </BrowserRouter>, document.getElementById('root'));
+}
+rerenderEntireTree(store.getState());
+store.subscribe(rerenderEntireTree);

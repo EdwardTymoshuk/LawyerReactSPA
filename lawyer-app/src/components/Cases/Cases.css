@@ -1,0 +1,9 @@
+.cases {
+    padding: 50px 0;
+    display: grid;
+    justify-content: center;
+    align-content: flex-start;
+}
+.cases-header {
+    padding-bottom: 50px;
+}
