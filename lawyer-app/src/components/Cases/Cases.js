@@ -2,6 +2,8 @@ import React from 'react';
 import {Card, CardDeck, ListGroup, ListGroupItem, Button, ButtonGroup} from 'react-bootstrap';
 import {NavLink} from 'react-router-dom';
 import './Cases.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 const Cases = (props) => {
 
@@ -33,6 +35,11 @@ const Cases = (props) => {
                         })
                     }
                 </CardDeck>
+                <div>
+                <NavLink to="/add">
+                    <FontAwesomeIcon icon={faPlus} size="5x"/>
+                    </NavLink>
+                </div>
             </div>
         </div>
     )

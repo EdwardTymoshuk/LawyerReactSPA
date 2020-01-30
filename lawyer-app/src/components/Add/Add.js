@@ -1,6 +1,9 @@
 import React from 'react';
 import './Add.css';
 import Cases from '../Cases/Cases';
+import { addCaseAC, updateNewCaseAC } from '../../redux/state';
+
+
 
 const Add = (props) => {
 
@@ -14,20 +17,21 @@ const Add = (props) => {
   let files = React.createRef();
 
   let addCase = () => {
-    let caseElement = {
-      id: id.current.value,
-      nrRef: nrRef.current.value,
-      firstName: firstName.current.value,
-      secondName: secondName.current.value,
-      birthday: birthday.current.value,
-      city: city.current.value,
-      description: description.current.value,
-      files: files.current.value
-    }
-    props.addCase(caseElement);
+    // let caseElement = {
+    //   id: id.current.value,
+    //   nrRef: nrRef.current.value,
+    //   firstName: firstName.current.value,
+    //   secondName: secondName.current.value,
+    //   birthday: birthday.current.value,
+    //   city: city.current.value,
+    //   description: description.current.value,
+    //   files: files.current.value
+    // }
+    props.dispatch(addCaseAC());
+    
   }
 
-  let onPostChange = () => {
+  let onCaseChange = () => {
     let newCase = {
       id: id.current.value,
       nrRef: nrRef.current.value,
@@ -38,7 +42,7 @@ const Add = (props) => {
       description: description.current.value,
       files: files.current.value
     }
-    props.updateNewCase(newCase);
+    props.dispatch(updateNewCaseAC(newCase));
   }
 
   return (
@@ -48,49 +52,49 @@ const Add = (props) => {
           <label>
             Id:
         </label>
-          <input onChange={onPostChange} ref={id} />
+          <input onChange={onCaseChange} ref={id} required/>
         </div>
         <div>
           <label>
             Nr ref:
         </label>
-          <input onChange={onPostChange} ref={nrRef} />
+          <input onChange={onCaseChange} ref={nrRef} />
         </div>
         <div>
           <label>
             First name:
         </label>
-          <input onChange={onPostChange} ref={firstName} />
+          <input onChange={onCaseChange} ref={firstName} />
         </div>
         <div>
           <label>
             Second name:
         </label>
-          <input onChange={onPostChange} ref={secondName} />
+          <input onChange={onCaseChange} ref={secondName} />
         </div>
         <div>
           <label>
             Date of birth:
         </label>
-          <input onChange={onPostChange} ref={birthday}/>
+          <input onChange={onCaseChange} ref={birthday}/>
         </div>
         <div>
           <label>
             City:
         </label>
-          <input onChange={onPostChange} ref={city}/>
+          <input onChange={onCaseChange} ref={city}/>
         </div>
         <div>
           <label>
             Description:
         </label>
-          <input onChange={onPostChange} ref={description}/>
+          <input onChange={onCaseChange} ref={description}/>
         </div>
         <div>
           <label>
             files:
         </label>
-          <input onChange={onPostChange} ref={files} />
+          <input onChange={onCaseChange} ref={files} />
         </div>
 
         <div>
@@ -99,7 +103,6 @@ const Add = (props) => {
         </button>
         </div>
       </div>
-      <Cases cases={props.cases} addCase={props.addCase} />
     </div>
   )
 }

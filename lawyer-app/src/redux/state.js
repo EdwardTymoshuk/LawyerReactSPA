@@ -1,5 +1,8 @@
+const ADD_CASE =  'ADD_CASE';
+const UPDATE_NEW_CASE = 'UPDATE_NEW_CASE';
+
 let store = {
-    _state :{
+    _state: {
         cases: [
             {
                 id: 1,
@@ -41,29 +44,53 @@ let store = {
                 description: 'Captain',
                 files: '...'
             }
-        ]
+        ],
+        newCase: {}
     },
+    _callSubscriber() {
+        console.log("State changed")
+    },
+
     setState(state) {
         this._state = state;
     },
     getState() {
         return this._state;
     },
-    _callSubscriber() {
-        console.log("State changed")
-    },
-    addCase() {
-        this._state.cases.push(this._state.newCase);
-        this._state.newCase = {};
-        this._callSubscriber(this._state);
-    },
-    updateNewCase(newCase) {
-        this._state.newCase = newCase;
-        this._callSubscriber(this._state);
-    },
     subscribe(observer) {
         this._callSubscriber = observer;
+    },
+    dispatch(action) {
+        switch (action.type ) {
+            case ADD_CASE:
+                this._state.cases.push(this._state.newCase);
+                this._state.newCase = {};
+                this._callSubscriber(this._state);
+                alert('Case was add to database')
+                break;
+            case UPDATE_NEW_CASE:
+
+                this._state.newCase = action.newCase;
+                this._callSubscriber(this._state);
+                break;
+            default:
+                return this._state;
+        }
+
     }
+
 }
+
+export const addCaseAC = () => {
+    return {
+      type: ADD_CASE
+    }
+  }
+  export const updateNewCaseAC = (newCase) => {
+    return {
+      type: UPDATE_NEW_CASE,
+      newCase: newCase
+    }
+  }
 
 export default store;
