@@ -1,7 +1,7 @@
 import React from 'react';
 import './Add.css';
-import Cases from '../Cases/Cases';
-import { addCaseAC, updateNewCaseAC } from '../../redux/state';
+import { addCaseAC, updateNewCaseAC } from '../../redux/casesReducer';
+import { Form, Modal, Button} from 'react-bootstrap';
 
 
 
@@ -16,25 +16,17 @@ const Add = (props) => {
   let description = React.createRef();
   let files = React.createRef();
 
+  let setId  = props.store.getState().cases.length + 1; 
+
   let addCase = () => {
-    // let caseElement = {
-    //   id: id.current.value,
-    //   nrRef: nrRef.current.value,
-    //   firstName: firstName.current.value,
-    //   secondName: secondName.current.value,
-    //   birthday: birthday.current.value,
-    //   city: city.current.value,
-    //   description: description.current.value,
-    //   files: files.current.value
-    // }
-    props.dispatch(addCaseAC());
+    props.store.dispatch(addCaseAC());
     
   }
 
   let onCaseChange = () => {
     let newCase = {
-      id: id.current.value,
-      nrRef: nrRef.current.value,
+      id: setId,
+      nrRef: setId,
       firstName: firstName.current.value,
       secondName: secondName.current.value,
       birthday: birthday.current.value,
@@ -42,18 +34,25 @@ const Add = (props) => {
       description: description.current.value,
       files: files.current.value
     }
-    props.dispatch(updateNewCaseAC(newCase));
+    props.store.dispatch(updateNewCaseAC(newCase));
   }
 
   return (
     <div>
-      <div className="container">
-        <div>
-          <label>
-            Id:
-        </label>
-          <input onChange={onCaseChange} ref={id} required/>
-        </div>
+<Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+          To add a new case please fill the fields below:
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+
+
         <div>
           <label>
             Nr ref:
@@ -102,7 +101,11 @@ const Add = (props) => {
             Save
         </button>
         </div>
-      </div>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button onClick={props.onHide}>Close</Button>
+      </Modal.Footer>
+    </Modal>
     </div>
   )
 }

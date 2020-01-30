@@ -1,6 +1,4 @@
-const ADD_CASE =  'ADD_CASE';
-const UPDATE_NEW_CASE = 'UPDATE_NEW_CASE';
-
+import casesReducer from "./casesReducer";
 let store = {
     _state: {
         cases: [
@@ -61,36 +59,9 @@ let store = {
         this._callSubscriber = observer;
     },
     dispatch(action) {
-        switch (action.type ) {
-            case ADD_CASE:
-                this._state.cases.push(this._state.newCase);
-                this._state.newCase = {};
-                this._callSubscriber(this._state);
-                alert('Case was add to database')
-                break;
-            case UPDATE_NEW_CASE:
-
-                this._state.newCase = action.newCase;
-                this._callSubscriber(this._state);
-                break;
-            default:
-                return this._state;
-        }
-
+        this._state.cases = casesReducer(this._state.cases, action);
+        this._callSubscriber(this._state);
     }
 
 }
-
-export const addCaseAC = () => {
-    return {
-      type: ADD_CASE
-    }
-  }
-  export const updateNewCaseAC = (newCase) => {
-    return {
-      type: UPDATE_NEW_CASE,
-      newCase: newCase
-    }
-  }
-
 export default store;
