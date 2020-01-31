@@ -13,16 +13,16 @@ const Case = (props) => {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Case № {props.store.getState().cases[0].id}
+          Case № {props.id}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-    <span>First name: {props.store.getState().cases[0].firstName}</span><br />
-        <span>Second name: {props.store.getState().cases[0].secondName}</span><br />
-        <span>Date of birth: {props.store.getState().cases[0].birthday}</span><br />
-        <span>City: {props.store.getState().cases[0].city}</span><br />
-        <span>Description: {props.store.getState().cases[0].description}</span><br />
-        <span>Files: {props.store.getState().cases[0].files}</span>
+    <span>First name: {props.cases[props.id-1].firstName}</span><br />
+        <span>Second name: {props.cases[props.id-1].secondName}</span><br />
+        <span>Date of birth: {props.cases[props.id-1].birthday}</span><br />
+        <span>City: {props.cases[props.id-1].city}</span><br />
+        <span>Description: {props.cases[props.id-1].description}</span><br />
+        <span>Files: {props.cases[props.id-1].files}</span>
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>

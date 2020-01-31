@@ -1,13 +1,11 @@
 import React from 'react';
 import './Add.css';
-import { addCaseAC, updateNewCaseAC } from '../../redux/casesReducer';
-import { Form, Modal, Button} from 'react-bootstrap';
+import { Modal, Button} from 'react-bootstrap';
 
 
 
 const Add = (props) => {
 
-  let id = React.createRef();
   let nrRef = React.createRef();
   let firstName = React.createRef();
   let secondName = React.createRef();
@@ -15,18 +13,18 @@ const Add = (props) => {
   let city = React.createRef();
   let description = React.createRef();
   let files = React.createRef();
-
-  let setId  = props.store.getState().cases.length + 1; 
+ 
 
   let addCase = () => {
-    props.store.dispatch(addCaseAC());
+    props.addCase();
     
   }
 
   let onCaseChange = () => {
+
     let newCase = {
-      id: setId,
-      nrRef: setId,
+      id: props.setId(),
+      nrRef: nrRef.current.value,
       firstName: firstName.current.value,
       secondName: secondName.current.value,
       birthday: birthday.current.value,
@@ -34,7 +32,7 @@ const Add = (props) => {
       description: description.current.value,
       files: files.current.value
     }
-    props.store.dispatch(updateNewCaseAC(newCase));
+    props.updateNewCase(newCase);
   }
 
   return (
