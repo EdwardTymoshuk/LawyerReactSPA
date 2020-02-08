@@ -3,6 +3,7 @@ import './Add.css';
 import { Modal, Button} from 'react-bootstrap';
 
 
+
 const Add = (props) => {
   let nrRef = React.createRef();
   let firstName = React.createRef();
@@ -28,7 +29,6 @@ const Add = (props) => {
       description: description.current.value,
     }
     props.updateNewCase(newCase);
-    console.log(props.cases);
   }
 
   return (

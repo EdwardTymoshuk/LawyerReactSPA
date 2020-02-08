@@ -1,31 +1,22 @@
-import React from 'react';
+import React from "react";
 import { Card, ListGroup, ListGroupItem, Button, ButtonGroup } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
-import './Cases.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import Case from '../Cases/Case/Case';
+import { NavLink } from 'react-router-dom';
+import Case from './Case/Case';
 import AddContainer from '../Add/AddContainer';
-import * as axios from 'axios';
+import './Cases.css';
 
 const Cases = (props) => {
-    
     const [caseAdd, setCaseAdd] = React.useState(false);
     const [caseShow, setCaseShow] = React.useState(false);
-    if (props.cases.length === 0) {
-    axios.get('http://localhost:3000/cases').then ( response => {
-        props.setCases(response.data);
-    }
-    )
-}
     return (
-        console.log(props),
         <div className="cases">
             <header className="cases-header">
                 Here are all of your cases:
             </header>
             <div className="cases-btn">
-            <Button onClick={setCaseAdd} variant="light" ><FontAwesomeIcon icon={faPlus} size="5x" /></Button>
+                <Button onClick={setCaseAdd} variant="light" ><FontAwesomeIcon icon={faPlus} size="5x" /></Button>
             </div>
             <div className="cases-body">
                 {
@@ -59,8 +50,6 @@ const Cases = (props) => {
             </div>
         </div>
     )
-
-
 }
 
 export default Cases;
