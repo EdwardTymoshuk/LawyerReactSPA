@@ -3,26 +3,21 @@ import { connect } from 'react-redux';
 import Add from './Add';
 import { updateNewCaseAC, addCaseAC } from '../../redux/casesReducer';
 
-const AddContainer = (props) => {
-
-    let addCase = () => {
-        props.store.dispatch(addCaseAC());
+let mapStateToProps = (state) => {
+    return {
     }
-    let onCaseChange = (newCase) => {
-        props.store.dispatch(updateNewCaseAC(newCase));
-    }
-    let setId = () => {
-        return props.store.getState().casesReducer.cases.length + 1;
-    }
-
-    return (
-        <Add updateNewCase={onCaseChange}
-            addCase={addCase}
-            onHide={props.onHide}
-            show={props.show}
-            setId={setId}/>
-            
-    )
 }
+
+let mapDispatchToProps = (dispatch) => {
+    return {
+        addCase: () => {
+          dispatch(addCaseAC());
+        },
+        updateNewCase: (newCase) => {
+            dispatch(updateNewCaseAC(newCase));
+        }
+    }
+}
+const AddContainer = connect(mapStateToProps, mapDispatchToProps)(Add)
 
 export default AddContainer;

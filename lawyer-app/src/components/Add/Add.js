@@ -3,36 +3,32 @@ import './Add.css';
 import { Modal, Button} from 'react-bootstrap';
 
 
-
 const Add = (props) => {
-
   let nrRef = React.createRef();
   let firstName = React.createRef();
   let secondName = React.createRef();
-  let birthday = React.createRef();
-  let city = React.createRef();
+  let dob = React.createRef();
+  let adress = React.createRef();
   let description = React.createRef();
-  let files = React.createRef();
  
 
   let addCase = () => {
     props.addCase();
-    
+    props.onHide();
   }
 
   let onCaseChange = () => {
 
     let newCase = {
-      id: props.setId(),
       nrRef: nrRef.current.value,
       firstName: firstName.current.value,
       secondName: secondName.current.value,
-      birthday: birthday.current.value,
-      city: city.current.value,
+      dob: dob.current.value,
+      adress: adress.current.value,
       description: description.current.value,
-      files: files.current.value
     }
     props.updateNewCase(newCase);
+    console.log(props.cases);
   }
 
   return (
@@ -73,13 +69,13 @@ const Add = (props) => {
           <label>
             Date of birth:
         </label>
-          <input onChange={onCaseChange} ref={birthday}/>
+          <input onChange={onCaseChange} ref={dob}/>
         </div>
         <div>
           <label>
-            City:
+            Adress:
         </label>
-          <input onChange={onCaseChange} ref={city}/>
+          <input onChange={onCaseChange} ref={adress}/>
         </div>
         <div>
           <label>
@@ -87,13 +83,6 @@ const Add = (props) => {
         </label>
           <input onChange={onCaseChange} ref={description}/>
         </div>
-        <div>
-          <label>
-            files:
-        </label>
-          <input onChange={onCaseChange} ref={files} />
-        </div>
-
         <div>
           <button onClick={addCase}>
             Save

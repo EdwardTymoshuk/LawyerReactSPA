@@ -2,7 +2,7 @@ import { createStore, combineReducers } from "redux";
 import casesReducer from "./casesReducer";
 
 let reducers = combineReducers ({
-    casesReducer
+    casesPage: casesReducer
 })
 let store = createStore(reducers);
 

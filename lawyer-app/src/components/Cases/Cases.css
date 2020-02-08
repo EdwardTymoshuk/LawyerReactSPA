@@ -7,3 +7,13 @@
 .cases-header {
     padding-bottom: 50px;
 }
+.cases-body {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+.cases-body .card {
+    margin: 25px;
+} 
+.cases-btn button {
+    background-color: inherit;
+}
