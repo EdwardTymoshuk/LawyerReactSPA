@@ -17,3 +17,8 @@
 .cases-btn button {
     background-color: inherit;
 }
+.cases-container-preloader {
+    display: grid;
+    justify-self: center;
+    padding-top: 50vh;
+}
