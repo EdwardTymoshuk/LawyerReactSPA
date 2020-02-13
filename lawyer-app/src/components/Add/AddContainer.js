@@ -1,7 +1,6 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import Add from './Add';
-import { updateNewCaseAC, addCaseAC } from '../../redux/casesReducer';
+import { updateNewCase, addCase } from '../../redux/casesReducer';
 
 let mapStateToProps = (state) => {
     return {
@@ -11,10 +10,10 @@ let mapStateToProps = (state) => {
 let mapDispatchToProps = (dispatch) => {
     return {
         addCase: () => {
-          dispatch(addCaseAC());
+          dispatch(addCase());
         },
         updateNewCase: (newCase) => {
-            dispatch(updateNewCaseAC(newCase));
+            dispatch(updateNewCase(newCase));
         }
     }
 }

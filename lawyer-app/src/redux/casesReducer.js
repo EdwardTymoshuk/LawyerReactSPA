@@ -12,18 +12,18 @@ const casesReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_CASES:
       return { ...state, cases: [...state.cases, ...action.cases] }
-    case ADD_CASE:
-      let body = state.newCase;
-      return {
-        ...state,
-        newCase: {},
-        cases: [...state.cases, body]
-      }
-    case UPDATE_NEW_CASE:
-      return {
-        ...state,
-        newCase: action.newCase
-      }
+      case ADD_CASE:
+        let body = state.newCase;
+        return {
+          ...state,
+          newCase: {},
+          cases: [...state.cases, body]
+        }
+      case UPDATE_NEW_CASE:
+        return {
+          ...state,
+          newCase: action.newCase
+        }
     case TOGGLE_IS_FETCHING:
       return {
         ...state,
@@ -34,8 +34,8 @@ const casesReducer = (state = initialState, action) => {
   }
 }
 export const setCases = (cases) => ({ type: SET_CASES, cases });
-export const addCaseAC = () => ({ type: ADD_CASE });
-export const updateNewCaseAC = (newCase) => ({ type: UPDATE_NEW_CASE, newCase });
+export const addCase = () => ({ type: ADD_CASE });
+export const updateNewCase = (newCase) => ({ type: UPDATE_NEW_CASE, newCase });
 export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isFetching });
 
 export default casesReducer;

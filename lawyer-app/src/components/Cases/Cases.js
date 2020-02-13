@@ -3,13 +3,11 @@ import { Card, ListGroup, ListGroupItem, Button, ButtonGroup } from 'react-boots
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from 'react-router-dom';
-import Case from './Case/Case';
 import AddContainer from '../Add/AddContainer';
 import './Cases.css';
 
 const Cases = (props) => {
     const [caseAdd, setCaseAdd] = React.useState(false);
-    const [caseShow, setCaseShow] = React.useState(false);
     return (
         <div className="cases">
             <header className="cases-header">
@@ -32,15 +30,11 @@ const Cases = (props) => {
                             </ListGroup>
                             <Card.Body>
                                 <ButtonGroup>
-                                    <Button onClick={setCaseShow} variant="primary" ><NavLink to={"/case" + item.id}>Show</NavLink></Button>
+                                    <Button variant="primary" ><NavLink to={"/caseElement/" + item._id}>Show</NavLink></Button>
                                     <Button variant="danger">Edit</Button>
                                 </ButtonGroup>
                             </Card.Body>
-                            <Case show={caseShow}
-                                onHide={() => setCaseShow(false)}
-                                cases={props.cases}
-                                id={item._id}
-                            />
+                            
                             <AddContainer show={caseAdd} onHide={() => setCaseAdd(false)} cases={props.cases} />
                         </Card>
                     })

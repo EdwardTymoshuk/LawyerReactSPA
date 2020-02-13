@@ -1,9 +1,6 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPowerOff } from '@fortawesome/free-solid-svg-icons';
 import './Header.css';
-import {Navbar, Nav, Form, FormControl, Button} from 'react-bootstrap';
-import {NavLink} from 'react-router-dom';
+import {Navbar, Form, FormControl, Button} from 'react-bootstrap';
 
 const Header = (props) => {
     return (
