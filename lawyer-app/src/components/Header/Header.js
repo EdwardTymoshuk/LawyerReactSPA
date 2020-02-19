@@ -1,6 +1,7 @@
 import React from 'react';
 import './Header.css';
-import {Navbar, Form, FormControl, Button} from 'react-bootstrap';
+import {Navbar, Form, FormControl, Button, Nav} from 'react-bootstrap';
+import {NavLink} from 'react-router-dom';
 
 const Header = (props) => {
     return (
@@ -10,6 +11,9 @@ const Header = (props) => {
             <FormControl type="text" placeholder="Search" className="mr-sm-2" />
             <Button variant="outline-success">Search</Button>
           </Form>
+          <Nav.Link>
+            {props.isAuth ? props.login : <NavLink to={'/login'}>Login</NavLink>}
+           </Nav.Link>
       </Navbar>
     )
 }

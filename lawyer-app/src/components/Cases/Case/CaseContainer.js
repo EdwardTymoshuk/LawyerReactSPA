@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import * as axios from 'axios';
 import { withRouter } from 'react-router-dom';
 import Case from '../Case/Case';
-import setCaseElement from './../../../redux/caseElementReducer';
+import {setCaseElement} from './../../../redux/caseElementReducer';
 
 class CaseContainer extends React.Component {
     componentDidMount() {
@@ -12,6 +12,7 @@ class CaseContainer extends React.Component {
             this.props.setCaseElement(response.data);
             
         })
+
     }
 
     render() {

@@ -4,7 +4,8 @@ import caseElementReducer from './caseElementReducer';
 
 let reducers = combineReducers ({
     casesPage: casesReducer,
-    caseElementPage:caseElementReducer
+    caseElementPage:caseElementReducer,
+    auth: authReducer
 })
 let store = createStore(reducers);
 window.store = store;
