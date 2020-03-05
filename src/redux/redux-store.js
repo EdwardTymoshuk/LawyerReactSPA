@@ -1,6 +1,8 @@
 import { createStore, combineReducers } from 'redux';
 import casesReducer from './casesReducer';
 import caseElementReducer from './caseElementReducer';
+import authReducer from './authReducer';
+
 
 let reducers = combineReducers ({
     casesPage: casesReducer,

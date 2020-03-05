@@ -12,7 +12,8 @@ const Header = (props) => {
             <Button variant="outline-success">Search</Button>
           </Form>
           <Nav.Link>
-            {props.isAuth ? props.login : <NavLink to={'/login'}>Login</NavLink>}
+            {console.log(props)}
+            {props.isAuth ? props.name : <NavLink to={'/login'}>Login</NavLink>}
            </Nav.Link>
       </Navbar>
     )

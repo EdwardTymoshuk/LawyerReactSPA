@@ -2,16 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { setCases, toggleIsFetching } from '../../redux/casesReducer';
 import Cases from './Cases';
-import * as axios from 'axios';
 import Preloader from '../common/Preloader';
-
+import {casesAPI} from '../../api/api';
 
 class CasesContainer extends React.Component {
     componentDidMount() {
         this.props.toggleIsFetching(true);
-        axios.get('http://localhost:3000/cases').then(response => {
+        casesAPI.getCases().then(data => {
             this.props.toggleIsFetching(false);
-            this.props.setCases(response.data);
+            this.props.setCases(data);
         }
         )
     }
@@ -30,16 +29,5 @@ let mapStateToProps = (state) => {
         isFetching: state.casesPage.isFetching
     }
 }
-
-// let mapDispatchToProps = (dispatch) => {
-//     return {
-//         setCases: (cases) => {
-//             dispatch(setCases(cases));
-//         },
-//         toggleIsFetching: (isFetching) => {
-//             dispatch(toggleIsFetching(isFetching));
-//         }
-//     }
-// }
 
 export default connect(mapStateToProps, {setCases, toggleIsFetching})(CasesContainer)
