@@ -1,18 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setCases, toggleIsFetching } from '../../redux/casesReducer';
+import { setCases, toggleIsFetching, getCases } from '../../redux/casesReducer';
 import Cases from './Cases';
 import Preloader from '../common/Preloader';
-import {casesAPI} from '../../api/api';
 
 class CasesContainer extends React.Component {
     componentDidMount() {
-        this.props.toggleIsFetching(true);
-        casesAPI.getCases().then(data => {
-            this.props.toggleIsFetching(false);
-            this.props.setCases(data);
-        }
-        )
+       this.props.getCases();
     }
     render() {
         return <>
@@ -30,4 +24,4 @@ let mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {setCases, toggleIsFetching})(CasesContainer)
+export default connect(mapStateToProps, {setCases, toggleIsFetching, getCases})(CasesContainer)

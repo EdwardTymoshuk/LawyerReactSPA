@@ -1,3 +1,5 @@
+import { casesAPI } from "../api/api";
+
 const SET_CASES = 'SET_CASES';
 const ADD_CASE = 'ADD_CASE';
 const UPDATE_NEW_CASE = 'UPDATE_NEW_CASE';
@@ -37,5 +39,16 @@ export const setCases = (cases) => ({ type: SET_CASES, cases });
 export const addCase = () => ({ type: ADD_CASE });
 export const updateNewCase = (newCase) => ({ type: UPDATE_NEW_CASE, newCase });
 export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isFetching });
+
+export const getCases = () => {
+  return (dispatch) => {
+    dispatch(toggleIsFetching(true));
+        casesAPI.getCases().then(data => {
+            dispatch(toggleIsFetching(false));
+            dispatch(setCases(data));
+        }
+        )
+  }
+}
 
 export default casesReducer;
