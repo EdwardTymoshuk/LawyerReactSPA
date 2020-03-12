@@ -1,7 +1,7 @@
 import React from 'react';
 import './Header.css';
 import {Navbar, Form, FormControl, Button, Nav} from 'react-bootstrap';
-import {NavLink} from 'react-router-dom';
+import {NavLink, Link} from 'react-router-dom';
 
 const Header = (props) => {
     return (
@@ -12,7 +12,10 @@ const Header = (props) => {
             <Button variant="outline-success">Search</Button>
           </Form>
           <Nav.Link>
-            {props.isAuth ? props.name : <NavLink to={'/login'}>Login</NavLink>}
+            <Link to={'/'}>Cases | </Link>
+            {props.isAuth 
+            ? <div className="header-log"><div className="header-login">{props.name}</div><Button variant="danger" onClick={props.logOut}>Logout</Button></div>
+            : <NavLink to={'/login'}>Login</NavLink>}
            </Nav.Link>
       </Navbar>
     )

@@ -10,14 +10,16 @@ const instance = axios.create({
 export const casesAPI = {
     getCases() {
         return instance.get('/cases').then(response => response.data);
-        }
+        },
+    getCaseElement(caseId) {
+        return instance.get('/caseElement/' + caseId);
     }
-
+    }
 export const loginAPI = {
     loginMe(email, password) {
-        return instance.post('/auth/login', {email, password})
+        return instance.post('/users/login', {email, password})
     },
     authMe() {
-        return instance.get('/auth/me');
+        return instance.get('/users/me');
     }
 }

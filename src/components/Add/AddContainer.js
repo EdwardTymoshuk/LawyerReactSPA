@@ -7,16 +7,6 @@ let mapStateToProps = (state) => {
     }
 }
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        addCase: () => {
-          dispatch(addCase());
-        },
-        updateNewCase: (newCase) => {
-            dispatch(updateNewCase(newCase));
-        }
-    }
-}
-const AddContainer = connect(mapStateToProps, mapDispatchToProps)(Add)
+const AddContainer = connect(mapStateToProps, {addCase, updateNewCase})(Add)
 
 export default AddContainer;

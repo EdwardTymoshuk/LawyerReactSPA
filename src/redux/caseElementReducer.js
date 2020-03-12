@@ -1,3 +1,4 @@
+import { casesAPI } from "../api/api";
 
 const SET_CASE_ELEMENT = 'SET_CASE_ELEMENT';
 
@@ -19,5 +20,10 @@ const caseElementReducer = (state = initialState, action) => {
 }
 
 export const setCaseElement = (caseElement) => ({ type: SET_CASE_ELEMENT, caseElement });
+export const getCaseElement = (caseId) => (dispatch) => {
+  casesAPI.getCaseElement(caseId).then(response => {
+            dispatch(setCaseElement(response.data)); 
+        })
+}
 
 export default caseElementReducer;

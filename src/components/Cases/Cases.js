@@ -30,8 +30,7 @@ const Cases = (props) => {
                             </ListGroup>
                             <Card.Body>
                                 <ButtonGroup>
-                                    <Button variant="primary" ><NavLink to={"/caseElement/" + item._id}>Show</NavLink></Button>
-                                    <Button variant="danger">Edit</Button>
+                                    <Button variant="primary"><NavLink to={"/caseElement/" + item._id}>Show</NavLink></Button>
                                 </ButtonGroup>
                             </Card.Body>
                             

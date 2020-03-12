@@ -4,8 +4,19 @@
     margin: 0;
     padding: 0;
     align-content: center;
-    display: grid;
+    display: flex;
     position: absolute;
+}
+.navbar {
+    justify-content: space-between;
+}
+.header-log {
+    display: inline-flex;
+    
+}
+.header-login {
+    align-self: center;
+    margin-right: 10px;
 }
 .header-button {
     color: #F4FFF8;
@@ -15,4 +26,7 @@
 }
 a {
     color: red;
+}
+a:hover{
+    color: #F4FFF8;
 }

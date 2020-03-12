@@ -1,10 +1,9 @@
 import React from 'react';
-import {setLoginData} from '../../redux/authReducer';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
+import { setLoginData } from '../../redux/authReducer';
 import Login from './Login';
 
 class LoginContainer extends React.Component {
-
   setLogin = (email, password) => {
     this.props.setLoginData(email, password);
   }

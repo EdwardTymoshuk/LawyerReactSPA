@@ -1,18 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setCases, toggleIsFetching, getCases } from '../../redux/casesReducer';
+import {compose} from 'redux';
+import { getCases } from '../../redux/casesReducer';
 import Cases from './Cases';
 import Preloader from '../common/Preloader';
+import {withAuthRedirect} from '../../hoc/withAuthRedirect';
 
 class CasesContainer extends React.Component {
     componentDidMount() {
-       this.props.getCases();
+        console.log(this.props.cases)
+       if (!this.props.cases.length) this.props.getCases();
     }
-    render() {
+     render() {
         return <>
-            {this.props.isFetching ? <Preloader />  : null}
-            <Cases cases={this.props.cases}
-            />
+            {this.props.isFetching ? <Preloader />  : null }
+            <Cases cases={this.props.cases} />
         </>
     }
 }
@@ -20,8 +22,8 @@ class CasesContainer extends React.Component {
 let mapStateToProps = (state) => {
     return {
         cases: state.casesPage.cases,
-        isFetching: state.casesPage.isFetching
+        isFetching: state.casesPage.isFetching,
     }
 }
 
-export default connect(mapStateToProps, {setCases, toggleIsFetching, getCases})(CasesContainer)
+export default compose(connect(mapStateToProps, {getCases}))(CasesContainer);
