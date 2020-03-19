@@ -13,7 +13,7 @@ let initialState = {
 const casesReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_CASES:
-      return { ...state, cases: [...state.cases, ...action.cases] }
+      return { ...state, cases: [...action.cases] }
       case ADD_CASE:
         let body = state.newCase;
         return {
@@ -46,9 +46,24 @@ export const getCases = () => {
         casesAPI.getCases().then(data => {
             dispatch(toggleIsFetching(false));
             dispatch(setCases(data));
-        }
-        )
+        })
   }
+}
+export const uploadCase = (newCase) => {
+  return (dispatch) => {
+    casesAPI.addCaseElement(newCase).then(response => {
+      console.log(response)
+      if (response.status === 200) {alert("New case was successfully added!")}
+  });
+  dispatch(getCases());
+}
+}
+
+export const deleteCaseElement = (caseId) => (dispatch) => {
+  casesAPI.deleteCaseElement(caseId).then(response => {
+    if (response.status === 200) alert('The case was succesfully deleted!');
+  })
+  dispatch(getCases());
 }
 
 export default casesReducer;

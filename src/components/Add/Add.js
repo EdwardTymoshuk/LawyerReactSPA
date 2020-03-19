@@ -2,7 +2,7 @@ import React from 'react';
 import './Add.css';
 import { Modal, Button} from 'react-bootstrap';
 
-
+let newCase;
 
 const Add = (props) => {
   let nrRef = React.createRef();
@@ -13,14 +13,13 @@ const Add = (props) => {
   let description = React.createRef();
  
 
-  let addCase = () => {
-    props.addCase();
+  const addCase = () => {
     props.onHide();
-  }
+    props.uploadCase(newCase);
+    }
 
-  let onCaseChange = () => {
-
-    let newCase = {
+  const onCaseChange = () => {
+    newCase = {
       nrRef: nrRef.current.value,
       firstName: firstName.current.value,
       secondName: secondName.current.value,
@@ -46,7 +45,7 @@ const Add = (props) => {
       </Modal.Header>
       <Modal.Body>
 
-
+<form>
         <div>
           <label>
             Nr ref:
@@ -57,13 +56,13 @@ const Add = (props) => {
           <label>
             First name:
         </label>
-          <input onChange={onCaseChange} ref={firstName} />
+          <input onChange={onCaseChange} ref={firstName} required/>
         </div>
         <div>
           <label>
             Second name:
         </label>
-          <input onChange={onCaseChange} ref={secondName} />
+          <input onChange={onCaseChange} ref={secondName} required/>
         </div>
         <div>
           <label>
@@ -84,10 +83,11 @@ const Add = (props) => {
           <input onChange={onCaseChange} ref={description}/>
         </div>
         <div>
-          <button onClick={addCase}>
+          <button type="submit" onClick={addCase}>
             Save
         </button>
         </div>
+        </form>
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>

@@ -12,8 +12,9 @@ const App = () => {
       <HeaderContainer />
      <Switch>
         <Route exact path="/" render={() => <CasesContainer />} />
+        <Route exact path="/cases" render={() => <CasesContainer />} />
         <Route path="/login" render={() => <LoginContainer />} />
-        <Route path="/caseElement/:caseId" render={() => <CaseContainer />} />
+        <Route path="/cases/:caseId" render={() => <CaseContainer />} />
       </Switch>
     </div>
 

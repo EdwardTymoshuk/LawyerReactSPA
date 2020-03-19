@@ -8,7 +8,6 @@ import {withAuthRedirect} from '../../hoc/withAuthRedirect';
 
 class CasesContainer extends React.Component {
     componentDidMount() {
-        console.log(this.props.cases)
        if (!this.props.cases.length) this.props.getCases();
     }
      render() {

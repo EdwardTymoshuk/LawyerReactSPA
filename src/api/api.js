@@ -12,9 +12,20 @@ export const casesAPI = {
         return instance.get('/cases').then(response => response.data);
         },
     getCaseElement(caseId) {
-        return instance.get('/caseElement/' + caseId);
+        return instance.get('/cases/' + caseId);
+    },
+    updateCaseElement(caseId, caseElement) {
+       let {firstName, secondName, dob, adress, description} = caseElement;
+        return instance.patch('/cases/' + caseId, {firstName, secondName, dob, adress, description});
+    },
+    deleteCaseElement(caseId) {
+        return instance.delete('/cases/' + caseId);
+    },
+    addCaseElement(newCase) {
+        return instance.post('/cases', newCase);
     }
     }
+
 export const loginAPI = {
     loginMe(email, password) {
         return instance.post('/users/login', {email, password})

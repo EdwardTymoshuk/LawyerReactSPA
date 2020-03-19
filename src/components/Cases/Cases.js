@@ -8,13 +8,14 @@ import './Cases.css';
 
 const Cases = (props) => {
     const [caseAdd, setCaseAdd] = React.useState(false);
+    if (caseAdd) return <AddContainer show={caseAdd} onHide={() => setCaseAdd(false)} cases={props.cases} />
     return (
         <div className="cases">
             <header className="cases-header">
                 Here are all of your cases:
             </header>
             <div className="cases-btn">
-                <Button onClick={setCaseAdd} variant="light" ><FontAwesomeIcon icon={faPlus} size="5x" /></Button>
+                <Button onClick={() => setCaseAdd(true)} variant="light"><FontAwesomeIcon icon={faPlus} size="5x" /></Button>
             </div>
             <div className="cases-body">
                 {
@@ -30,11 +31,9 @@ const Cases = (props) => {
                             </ListGroup>
                             <Card.Body>
                                 <ButtonGroup>
-                                    <Button variant="primary"><NavLink to={"/caseElement/" + item._id}>Show</NavLink></Button>
+                                    <Button variant="primary"><NavLink to={"/cases/" + item._id}>Show</NavLink></Button>
                                 </ButtonGroup>
-                            </Card.Body>
-                            
-                            <AddContainer show={caseAdd} onHide={() => setCaseAdd(false)} cases={props.cases} />
+                            </Card.Body>                    
                         </Card>
                     })
                 }
