@@ -25,4 +25,4 @@ let mapStateToProps = (state) => {
     }
 }
 
-export default compose(connect(mapStateToProps, {getCases}))(CasesContainer);
+export default compose(withAuthRedirect, connect(mapStateToProps, {getCases}))(CasesContainer);
