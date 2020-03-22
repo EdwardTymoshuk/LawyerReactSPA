@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Form, Button} from 'react-bootstrap';
+import {Redirect} from 'react-router-dom';
 import './Login.css';
 
 const Login = (props) => {
@@ -7,7 +8,7 @@ const Login = (props) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
-
+  if (props.isAuth) return <Redirect to="/cases" />
 
   return (
         <div className="login-form">

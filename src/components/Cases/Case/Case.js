@@ -7,23 +7,27 @@ import {Redirect} from 'react-router-dom';
 
 const Case = (props) => {
   const [editMode, setEditMode] = useState(false);
+  const [title, setTitle] = useState();
+  const [date, setDate] = useState();
+  const [adress, setAdress] = useState();
   const [firstName, setFirstName] = useState();
   const [secondName, setSecondName] = useState();
   const [dob, setDob] = useState();
-  const [adress, setAdress] = useState();
   const [description, setDescription] = useState();
   const [deleted, setDeleted] = useState(false);
 
   useEffect(() => {
+    setTitle(props.caseElement.title);
+    setDate(props.caseElement.date);
+    setAdress(props.caseElement.adress);
     setFirstName(props.caseElement.firstName);
     setSecondName(props.caseElement.secondName);
     setDob(props.caseElement.dob);
-    setAdress(props.caseElement.adress);
     setDescription(props.caseElement.description);
   }, [props.caseElement])
 
   const updateCase = () => {
-    let mewCaseElement = {firstName, secondName, dob, adress, description};
+    let mewCaseElement = {title, date, adress, firstName, secondName, dob, description};
     props.updateCaseElement(props.caseElement._id, mewCaseElement);
     setEditMode(false);
   }
@@ -35,12 +39,57 @@ const deleteCase = () => {
   if (!props.caseElement) return <Preloader />
   return (
     <div className="case-element">
+       <header className="case-element-header">
+       CASE № {props.caseElement._id}
+      </header>
       <Card>
-        <Card.Header >
-          Case № {props.caseElement._id}
-        </Card.Header>
         <Card.Body>
           <ListGroup className="list-group-flush">
+            <ListGroup.Item as="div">
+              {(!editMode)
+                ?
+                <ListGroup.Item>
+                  Title:{props.caseElement.title && title}
+                </ListGroup.Item>
+                :
+                <InputGroup>
+                  <InputGroup.Prepend>
+                    <InputGroup.Text>Title: </InputGroup.Text>
+                  </InputGroup.Prepend>
+                  <FormControl type="text" value={title} onChange={(e) => setFirstName(e.currentTarget.value)}/>
+                </InputGroup>
+              }
+            </ListGroup.Item>
+            <ListGroup.Item as="div">
+              {(!editMode)
+                ?
+                <ListGroup.Item>
+                  Date: {props.caseElement.date && date}
+                </ListGroup.Item>
+                :
+                <InputGroup>
+                  <InputGroup.Prepend>
+                    <InputGroup.Text>Date: </InputGroup.Text>
+                  </InputGroup.Prepend>
+                  <FormControl type="date" value={date} onChange={(e) => setFirstName(e.currentTarget.value)}/>
+                </InputGroup>
+              }
+            </ListGroup.Item>
+            <ListGroup.Item as="div">
+              {(!editMode)
+                ?
+                <ListGroup.Item>
+                  Adress: {props.caseElement.adress}
+                </ListGroup.Item>
+                :
+                <InputGroup>
+                  <InputGroup.Prepend>
+                    <InputGroup.Text>Adress: </InputGroup.Text>
+                  </InputGroup.Prepend>
+                  <FormControl type="text" value={adress} onChange={(e) => setAdress(e.currentTarget.value)}/>
+                </InputGroup>
+              }
+            </ListGroup.Item>
             <ListGroup.Item as="div">
               {(!editMode)
                 ?
@@ -90,21 +139,6 @@ const deleteCase = () => {
               {(!editMode)
                 ?
                 <ListGroup.Item>
-                  Adress: {props.caseElement.adress}
-                </ListGroup.Item>
-                :
-                <InputGroup>
-                  <InputGroup.Prepend>
-                    <InputGroup.Text>Adress: </InputGroup.Text>
-                  </InputGroup.Prepend>
-                  <FormControl type="text" value={adress} onChange={(e) => setAdress(e.currentTarget.value)}/>
-                </InputGroup>
-              }
-            </ListGroup.Item>
-            <ListGroup.Item as="div">
-              {(!editMode)
-                ?
-                <ListGroup.Item>
                   Description: {props.caseElement.description}
                 </ListGroup.Item>
                 :
@@ -122,11 +156,11 @@ const deleteCase = () => {
           <ButtonGroup>
           {(!editMode) 
           ?
-          <Button variant="info" onClick={() => {setEditMode(true)}}>Edit</Button>
+          <Button className="case-element-btn-edit" onClick={() => {setEditMode(true)}}>Edit</Button>
           :
-          <Button variant="success" onClick={updateCase}>Save</Button>
+          <Button className="case-element-btn-save" onClick={updateCase}>Save</Button>
           }
-            <Button variant="danger" onClick={deleteCase}>Delete</Button>
+            <Button className="case-element-btn-delete" variant="danger" onClick={deleteCase}>Delete</Button>
           </ButtonGroup>
         </Card.Footer>
       </Card>

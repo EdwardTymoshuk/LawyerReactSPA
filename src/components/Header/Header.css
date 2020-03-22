@@ -1,32 +1,92 @@
+.btn {
+    color: #2E1114;
+    background-color: #f8e9a1;
+    border: 0;
+    transition: ease-in-out .2s;
+}
+.btn:hover,
+.btn:focus,
+.btn:active {
+    background-color: #3b945e !important;
+    color: #2E1114 !important;
+    box-shadow: none;
+}
+.btn:hover {
+    border-radius: 10px;
+}
+.btn a {
+    color: #2E1114;
+    text-decoration: none;
+}
 .header {
-    background-color: #4C212A;
+    background-color: #2E1114;
     height: 100px;
     margin: 0;
-    padding: 0;
+    padding: 20px;
     align-content: center;
-    display: flex;
-    position: absolute;
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr 1fr;
 }
-.navbar {
-    justify-content: space-between;
+.header-brand {
+
 }
-.header-log {
-    display: inline-flex;
-    
+.header-cases a{
+    text-decoration: none;
+    color: #2E1114;
 }
-.header-login {
-    align-self: center;
-    margin-right: 10px;
+.header-search {
+    justify-content: center;
 }
-.header-button {
-    color: #F4FFF8;
+.header-login-greating {
+    color: #f8e9a1;
+    padding: 5px;
 }
-.header-button:hover {
-    color: #8BAAAD;
+.header-login-btn{
+    background-color: #3b945e;
 }
-a {
-    color: red;
+.header-login-btn:hover{
+    background-color: #3b945e;
 }
-a:hover{
-    color: #F4FFF8;
+.header-logout-btn{
+    background-color: #f76c6c;
+}
+.header-logout-btn:hover{
+    background-color: #f76c6c;
+}
+.header-login a {
+    text-decoration: none;
+    color: #2E1114;
+}
+
+/* Ipad */
+@media screen and (max-width: 1024px) {
+    .header {
+        height: 100px;
+        margin: 0;
+        padding: 10px;
+        grid-template-columns: 1fr 1fr 2fr 2fr
+    }
+    .header-search-input {
+        margin-bottom: 5px;
+    }
+}
+/* Mobile */
+@media screen and (max-width: 768px) {
+    .header {
+        height: 100px;
+        margin: 0;
+        padding: 10px;
+        grid-template-columns: 1fr 1fr 2fr 2fr
+    }
+    .header-brand {
+        font-size: 1em;
+    }
+    .header-search-input {
+        margin-bottom: 5px;
+    }
+    .header-login-greating {
+        font-size: .8rem;
+        color: #f8e9a1;
+        padding: 5px;
+    }
 }

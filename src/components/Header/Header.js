@@ -5,17 +5,17 @@ import {NavLink, Link} from 'react-router-dom';
 
 const Header = (props) => {
     return (
-        <Navbar expand="lg" bg="dark" variant="dark" fixed="top">
-        <Navbar.Brand href="/">React-Bootstrap</Navbar.Brand>
-          <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Button variant="outline-success">Search</Button>
+        <Navbar expand="lg" variant="dark" fixed="top" className="header">
+        <Navbar.Brand className="header-brand" >LAWYER REACT APP</Navbar.Brand>
+        <Nav.Link className="header-cases"><Button><Link to={'/'}>Cases</Link></Button></Nav.Link>
+          <Form inline className="header-search">
+            <FormControl type="text" placeholder="Search" className="mr-sm-2 header-search-input" />
+            <Button className="header-search-btn">Search</Button>
           </Form>
-          <Nav.Link>
-            <Link to={'/'}>Cases | </Link>
+          <Nav.Link className="header-login">
             {props.isAuth 
-            ? <div className="header-log"><div className="header-login">{props.name}</div><Button variant="danger" onClick={props.logOut}>Logout</Button></div>
-            : <NavLink to={'/login'}>Login</NavLink>}
+            ? <div><div className="header-login-greating">Nice to see you, {props.name}!</div><Button className="header-logout-btn" onClick={props.logOut}>Logout</Button></div>
+            : <Button className="header-login-btn"><NavLink to={'/login'}>Login</NavLink></Button>}
            </Nav.Link>
       </Navbar>
     )

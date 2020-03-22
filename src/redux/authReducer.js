@@ -41,24 +41,13 @@ const authReducer = (state = initialState, action) => {
 export const setAuthUserData = (name, email) => ({ type: SET_USER_DATA, name, email});
 export const logOut = () => ({type: SET_LOGOUT});
 export const authMe = () => ({type: SET_AUTH_ME})
-export const setLoginData = (email, password) => (dispatch) => {
-    loginAPI.loginMe({email, password}).then((response) => {
+export const setLoginData = (email, password) => async (dispatch) => {
+    let response = await loginAPI.loginMe({email, password});
       if (response.status === 200) { 
         dispatch(setAuthUserData(response.data.name, response.data.email));
         alert('You`re loged in!')
-      } else if (response.status === 400) { 
+      } else { 
         alert('Login failed!')
     }
-  })
 }
-// export const authMe = () => (dispatch) => {
-//   loginAPI.authMe().then((response) => {
-//     console.log(response)
-//     if (response.status === 200) { 
-//       console.log(response.data)
-//     } else { 
-//       console.log('error')
-//   }
-//   })
-// }
 export default authReducer;

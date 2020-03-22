@@ -15,8 +15,8 @@ export const casesAPI = {
         return instance.get('/cases/' + caseId);
     },
     updateCaseElement(caseId, caseElement) {
-       let {firstName, secondName, dob, adress, description} = caseElement;
-        return instance.patch('/cases/' + caseId, {firstName, secondName, dob, adress, description});
+       let {title, date, adress, firstName, secondName, dob, description} = caseElement;
+        return instance.patch('/cases/' + caseId, {title, date, adress, firstName, secondName, dob, description});
     },
     deleteCaseElement(caseId) {
         return instance.delete('/cases/' + caseId);

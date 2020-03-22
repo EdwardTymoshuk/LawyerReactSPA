@@ -5,7 +5,20 @@
     align-content: flex-start;
 }
 .cases-header {
-    padding-bottom: 50px;
+    font-size: 3em;
+    color: #2E1114;
+    padding: 25px 0;
+    background-color: #f8e9a1;
+}
+.cases-btn {
+    background-color: transparent;
+    color: #2E1114;
+    transition: ease-in-out .4s;
+}
+.cases-btn:hover {
+    background: transparent !important;
+    transform: rotate(180deg);
+    color: #3b945e;
 }
 .cases-body {
     display: grid;
@@ -22,13 +35,14 @@
     justify-self: center;
     padding-top: 50vh;
 }
-
-@media only screen 
-  and (min-width: 320px)
-  and (max-width: 812px) {
-    .cases {
-        padding: 150px 0 50px 0;
+@media screen and (max-width: 1024px) {
+    .cases-body {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
     }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 768px) {
     .cases-body {
         display: grid;
         grid-template-columns: repeat(2, 1fr);

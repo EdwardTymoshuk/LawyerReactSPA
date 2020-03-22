@@ -5,11 +5,12 @@ import { Modal, Button} from 'react-bootstrap';
 let newCase;
 
 const Add = (props) => {
-  let nrRef = React.createRef();
+  let title = React.createRef();
+  let date = React.createRef();
+  let adress = React.createRef();
   let firstName = React.createRef();
   let secondName = React.createRef();
   let dob = React.createRef();
-  let adress = React.createRef();
   let description = React.createRef();
  
 
@@ -20,11 +21,12 @@ const Add = (props) => {
 
   const onCaseChange = () => {
     newCase = {
-      nrRef: nrRef.current.value,
+      title: title.current.value,
+      date: date.current.value,
+      adress: adress.current.value,
       firstName: firstName.current.value,
       secondName: secondName.current.value,
       dob: dob.current.value,
-      adress: adress.current.value,
       description: description.current.value,
     }
     props.updateNewCase(newCase);
@@ -48,15 +50,27 @@ const Add = (props) => {
 <form>
         <div>
           <label>
-            Nr ref:
+           Title:
         </label>
-          <input onChange={onCaseChange} ref={nrRef} />
+          <input onChange={onCaseChange} ref={title} />
         </div>
         <div>
           <label>
+           Date:
+        </label>
+          <input onChange={onCaseChange} ref={date} />
+        </div>
+        <div>
+          <label>
+            Adress:
+        </label>
+          <input onChange={onCaseChange} ref={adress}/>
+        </div>
+        <div>
+          <label for="firstName">
             First name:
         </label>
-          <input onChange={onCaseChange} ref={firstName} required/>
+          <input if="firstName" onChange={onCaseChange} ref={firstName} required/>
         </div>
         <div>
           <label>
@@ -69,12 +83,6 @@ const Add = (props) => {
             Date of birth:
         </label>
           <input onChange={onCaseChange} ref={dob}/>
-        </div>
-        <div>
-          <label>
-            Adress:
-        </label>
-          <input onChange={onCaseChange} ref={adress}/>
         </div>
         <div>
           <label>

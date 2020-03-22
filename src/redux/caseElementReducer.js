@@ -21,17 +21,13 @@ const caseElementReducer = (state = initialState, action) => {
 
 export const setCaseElement = (caseElement) => ({ type: SET_CASE_ELEMENT, caseElement });
 
-export const getCaseElement = (caseId) => (dispatch) => {
-  casesAPI.getCaseElement(caseId).then(response => {
-            dispatch(setCaseElement(response.data)); 
-        })
+export const getCaseElement = (caseId) => async (dispatch) => {
+  let response = await casesAPI.getCaseElement(caseId);
+    if (response.status === 200) dispatch(setCaseElement(response.data)); 
 }
-export const updateCaseElement = (caseId, caseElement) => (dispatch) => {
-  casesAPI.updateCaseElement(caseId, caseElement).then(
-    casesAPI.getCaseElement(caseId).then(response => {
-      dispatch(setCaseElement(response.data)); 
-  })
-  )
+export const updateCaseElement = (caseId, caseElement) => async (dispatch) => {
+  let response = await casesAPI.updateCaseElement(caseId, caseElement);
+  if (response.status === 200) dispatch(setCaseElement(caseElement)); 
 }
 
 

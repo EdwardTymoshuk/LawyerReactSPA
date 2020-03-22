@@ -12,20 +12,22 @@ const Cases = (props) => {
     return (
         <div className="cases">
             <header className="cases-header">
-                Here are all of your cases:
+                ALL CASES
             </header>
-            <div className="cases-btn">
-                <Button onClick={() => setCaseAdd(true)} variant="light"><FontAwesomeIcon icon={faPlus} size="5x" /></Button>
+            <div>
+                <Button className="cases-btn" onClick={() => setCaseAdd(true)} variant="light"><FontAwesomeIcon icon={faPlus} size="5x" /></Button>
             </div>
             <div className="cases-body">
                 {
                     props.cases.map((item) => {
                         return <Card key={item._id}>
                             <Card.Header>
-                                No of case: {item.nrRef}
+                                No of case: {item._id}
                             </Card.Header>
                             <ListGroup className="list-group-flush">
-                                <ListGroupItem>Name: {item.firstName}</ListGroupItem>
+                                <ListGroupItem>Title: {item.title}</ListGroupItem>
+                                <ListGroupItem>Date: {item.date}</ListGroupItem>
+                                <ListGroupItem>First name: {item.firstName}</ListGroupItem>
                                 <ListGroupItem>Second name: {item.secondName}</ListGroupItem>
                                 <ListGroupItem>Adress: {item.adress}</ListGroupItem>
                             </ListGroup>
