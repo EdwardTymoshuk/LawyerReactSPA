@@ -2,7 +2,6 @@ import { casesAPI } from "../api/api";
 
 const SET_CASES = 'SET_CASES';
 const ADD_CASE = 'ADD_CASE';
-const UPDATE_NEW_CASE = 'UPDATE_NEW_CASE';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 
 let initialState = {
@@ -15,16 +14,9 @@ const casesReducer = (state = initialState, action) => {
     case SET_CASES:
       return { ...state, cases: [...action.cases] }
     case ADD_CASE:
-      let body = state.newCase;
       return {
         ...state,
-        newCase: {},
-        cases: [...state.cases, body]
-      }
-    case UPDATE_NEW_CASE:
-      return {
-        ...state,
-        newCase: action.newCase
+        cases: [...state.cases, action.newCase]
       }
     case TOGGLE_IS_FETCHING:
       return {
@@ -36,8 +28,7 @@ const casesReducer = (state = initialState, action) => {
   }
 }
 export const setCases = (cases) => ({ type: SET_CASES, cases });
-export const addCase = () => ({ type: ADD_CASE });
-export const updateNewCase = (newCase) => ({ type: UPDATE_NEW_CASE, newCase });
+export const addCase = (newCase) => ({ type: ADD_CASE, newCase });
 export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isFetching });
 
 export const getCases = () => async (dispatch) => {
@@ -47,9 +38,13 @@ export const getCases = () => async (dispatch) => {
   dispatch(setCases(data));
 }
 export const uploadCase = (newCase) => async (dispatch) => {
-  let response = await casesAPI.addCaseElement(newCase);
-  if (response.status === 200) { alert("New case was successfully added!") }
-  dispatch(getCases());
+  await casesAPI.addCaseElement(newCase);
+  try { 
+    alert("New case was successfully added!") 
+  } catch(err) {
+    alert({message: err})
+  }
+  dispatch(addCase(newCase));
 }
 
 export const deleteCaseElement = (caseId) => async (dispatch) => {

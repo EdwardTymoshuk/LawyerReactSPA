@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import {compose} from 'redux';
 import { getCases } from '../../redux/casesReducer';
 import Cases from './Cases';
-import Preloader from '../common/Preloader';
+import Preloader from '../common/Preloader/Preloader';
 import {withAuthRedirect} from '../../hoc/withAuthRedirect';
 
 class CasesContainer extends React.Component {

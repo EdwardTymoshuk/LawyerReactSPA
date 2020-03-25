@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Button, ButtonGroup, Card, ListGroup, InputGroup, FormControl } from 'react-bootstrap';
-import Preloader from '../../common/Preloader';
+import Preloader from '../../common/Preloader/Preloader';
 import './Case.css';
-import {Redirect} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 
 const Case = (props) => {
@@ -27,20 +27,20 @@ const Case = (props) => {
   }, [props.caseElement])
 
   const updateCase = () => {
-    let mewCaseElement = {title, date, adress, firstName, secondName, dob, description};
+    let mewCaseElement = { title, date, adress, firstName, secondName, dob, description };
     props.updateCaseElement(props.caseElement._id, mewCaseElement);
     setEditMode(false);
   }
-const deleteCase = () => {
-  props.deleteCaseElement(props.caseElement._id);
-  setDeleted(true);
-}
+  const deleteCase = () => {
+    props.deleteCaseElement(props.caseElement._id);
+    setDeleted(true);
+  }
   if (deleted) return <Redirect to="/cases" />
   if (!props.caseElement) return <Preloader />
   return (
     <div className="case-element">
-       <header className="case-element-header">
-       CASE № {props.caseElement._id}
+      <header className="case-element-header">
+        CASE № {props.caseElement._id}
       </header>
       <Card>
         <Card.Body>
@@ -56,7 +56,7 @@ const deleteCase = () => {
                   <InputGroup.Prepend>
                     <InputGroup.Text>Title: </InputGroup.Text>
                   </InputGroup.Prepend>
-                  <FormControl type="text" value={title} onChange={(e) => setFirstName(e.currentTarget.value)}/>
+                  <FormControl type="text" value={title} onChange={(e) => setFirstName(e.currentTarget.value)} />
                 </InputGroup>
               }
             </ListGroup.Item>
@@ -71,7 +71,7 @@ const deleteCase = () => {
                   <InputGroup.Prepend>
                     <InputGroup.Text>Date: </InputGroup.Text>
                   </InputGroup.Prepend>
-                  <FormControl type="date" value={date} onChange={(e) => setFirstName(e.currentTarget.value)}/>
+                  <FormControl type="date" value={date} onChange={(e) => setFirstName(e.currentTarget.value)} />
                 </InputGroup>
               }
             </ListGroup.Item>
@@ -86,7 +86,7 @@ const deleteCase = () => {
                   <InputGroup.Prepend>
                     <InputGroup.Text>Adress: </InputGroup.Text>
                   </InputGroup.Prepend>
-                  <FormControl type="text" value={adress} onChange={(e) => setAdress(e.currentTarget.value)}/>
+                  <FormControl type="text" value={adress} onChange={(e) => setAdress(e.currentTarget.value)} />
                 </InputGroup>
               }
             </ListGroup.Item>
@@ -101,7 +101,7 @@ const deleteCase = () => {
                   <InputGroup.Prepend>
                     <InputGroup.Text>First name: </InputGroup.Text>
                   </InputGroup.Prepend>
-                  <FormControl type="text" value={firstName} onChange={(e) => setFirstName(e.currentTarget.value)}/>
+                  <FormControl type="text" value={firstName} onChange={(e) => setFirstName(e.currentTarget.value)} />
                 </InputGroup>
               }
             </ListGroup.Item>
@@ -116,7 +116,7 @@ const deleteCase = () => {
                   <InputGroup.Prepend>
                     <InputGroup.Text>Second name: </InputGroup.Text>
                   </InputGroup.Prepend>
-                  <FormControl type="text" value={secondName} onChange={(e) => setSecondName(e.currentTarget.value)}/>
+                  <FormControl type="text" value={secondName} onChange={(e) => setSecondName(e.currentTarget.value)} />
                 </InputGroup>
               }
             </ListGroup.Item>
@@ -131,7 +131,7 @@ const deleteCase = () => {
                   <InputGroup.Prepend>
                     <InputGroup.Text>Date of birth: </InputGroup.Text>
                   </InputGroup.Prepend>
-                  <FormControl type="text" value={dob} onChange={(e) => setDob(e.currentTarget.value)}/>
+                  <FormControl type="text" value={dob} onChange={(e) => setDob(e.currentTarget.value)} />
                 </InputGroup>
               }
             </ListGroup.Item>
@@ -146,7 +146,7 @@ const deleteCase = () => {
                   <InputGroup.Prepend>
                     <InputGroup.Text>Description: </InputGroup.Text>
                   </InputGroup.Prepend>
-                  <FormControl type="text" value={description} onChange={(e) => setDescription(e.currentTarget.value)}/>
+                  <FormControl type="text" value={description} onChange={(e) => setDescription(e.currentTarget.value)} />
                 </InputGroup>
               }
             </ListGroup.Item>
@@ -154,12 +154,12 @@ const deleteCase = () => {
         </Card.Body>
         <Card.Footer>
           <ButtonGroup>
-          {(!editMode) 
-          ?
-          <Button className="case-element-btn-edit" onClick={() => {setEditMode(true)}}>Edit</Button>
-          :
-          <Button className="case-element-btn-save" onClick={updateCase}>Save</Button>
-          }
+            {(!editMode)
+              ?
+              <Button className="case-element-btn-edit" onClick={() => { setEditMode(true) }}>Edit</Button>
+              :
+              <Button className="case-element-btn-save" onClick={updateCase}>Save</Button>
+            }
             <Button className="case-element-btn-delete" variant="danger" onClick={deleteCase}>Delete</Button>
           </ButtonGroup>
         </Card.Footer>

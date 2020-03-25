@@ -1,0 +1,9 @@
+.input {
+    
+}
+.input.error input{
+    border: 2px solid #f76c6c;
+}
+.input.error small{
+    color: #f76c6c !important;
+}

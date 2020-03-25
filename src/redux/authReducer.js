@@ -43,11 +43,11 @@ export const logOut = () => ({type: SET_LOGOUT});
 export const authMe = () => ({type: SET_AUTH_ME})
 export const setLoginData = (email, password) => async (dispatch) => {
     let response = await loginAPI.loginMe({email, password});
-      if (response.status === 200) { 
+    try {
         dispatch(setAuthUserData(response.data.name, response.data.email));
         alert('You`re loged in!')
-      } else { 
-        alert('Login failed!')
+      } catch(err) { 
+        alert({message: err})
     }
 }
 export default authReducer;

@@ -23,11 +23,19 @@ export const setCaseElement = (caseElement) => ({ type: SET_CASE_ELEMENT, caseEl
 
 export const getCaseElement = (caseId) => async (dispatch) => {
   let response = await casesAPI.getCaseElement(caseId);
-    if (response.status === 200) dispatch(setCaseElement(response.data)); 
+    try {
+      dispatch(setCaseElement(response.data)); 
+    } catch(err) {
+      alert({message: err})
+    }
 }
 export const updateCaseElement = (caseId, caseElement) => async (dispatch) => {
-  let response = await casesAPI.updateCaseElement(caseId, caseElement);
-  if (response.status === 200) dispatch(setCaseElement(caseElement)); 
+  await casesAPI.updateCaseElement(caseId, caseElement);
+  try {
+    dispatch(setCaseElement(caseElement));
+  } catch(err) {
+    alert(err)
+  } 
 }
 
 

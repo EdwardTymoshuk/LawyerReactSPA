@@ -7,3 +7,23 @@
   grid-template-rows: 1fr 10fr;
   overflow-x: hidden;
 } 
+.btn {
+  color: #2E1114;
+  background-color: #f8e9a1;
+  border: 0;
+  transition: ease-in-out .2s;
+}
+.btn:hover,
+.btn:focus,
+.btn:active {
+  background-color: #f8e9a1 !important;
+  color: #2E1114 !important;
+  box-shadow: none;
+}
+.btn:hover {
+  border-radius: 10px;
+}
+.btn a {
+  color: #2E1114;
+  text-decoration: none;
+}

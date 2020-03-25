@@ -1,39 +1,17 @@
 import React from 'react';
 import './Add.css';
 import { Modal, Button} from 'react-bootstrap';
-
-let newCase;
+import {reduxForm, Field} from 'redux-form';
 
 const Add = (props) => {
-  let title = React.createRef();
-  let date = React.createRef();
-  let adress = React.createRef();
-  let firstName = React.createRef();
-  let secondName = React.createRef();
-  let dob = React.createRef();
-  let description = React.createRef();
- 
 
-  const addCase = () => {
+  const addCase = (values) => {
+    const {title, date, adress, firstName, secondName, dob, description} = values;
     props.onHide();
-    props.uploadCase(newCase);
+    props.uploadCase({title, date, adress, firstName, secondName, dob, description});
     }
-
-  const onCaseChange = () => {
-    newCase = {
-      title: title.current.value,
-      date: date.current.value,
-      adress: adress.current.value,
-      firstName: firstName.current.value,
-      secondName: secondName.current.value,
-      dob: dob.current.value,
-      description: description.current.value,
-    }
-    props.updateNewCase(newCase);
-  }
 
   return (
-    <div>
 <Modal
       {...props}
       size="lg"
@@ -46,64 +24,70 @@ const Add = (props) => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-
-<form>
-        <div>
-          <label>
-           Title:
-        </label>
-          <input onChange={onCaseChange} ref={title} />
-        </div>
-        <div>
-          <label>
-           Date:
-        </label>
-          <input onChange={onCaseChange} ref={date} />
-        </div>
-        <div>
-          <label>
-            Adress:
-        </label>
-          <input onChange={onCaseChange} ref={adress}/>
-        </div>
-        <div>
-          <label for="firstName">
-            First name:
-        </label>
-          <input if="firstName" onChange={onCaseChange} ref={firstName} required/>
-        </div>
-        <div>
-          <label>
-            Second name:
-        </label>
-          <input onChange={onCaseChange} ref={secondName} required/>
-        </div>
-        <div>
-          <label>
-            Date of birth:
-        </label>
-          <input onChange={onCaseChange} ref={dob}/>
-        </div>
-        <div>
-          <label>
-            Description:
-        </label>
-          <input onChange={onCaseChange} ref={description}/>
-        </div>
-        <div>
-          <button type="submit" onClick={addCase}>
-            Save
-        </button>
-        </div>
-        </form>
+<LoginReduxForm onSubmit={addCase}/>
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>
       </Modal.Footer>
     </Modal>
-    </div>
   )
 }
+
+const AddForm = (props) => {
+  return (
+  <form onSubmit={props.handleSubmit}>
+        <div>
+          <label>
+           Title:
+        </label>
+          <Field name="title" placeholder="Case title" component="input"/>
+        </div>
+        <div>
+          <label>
+           Date:
+        </label>
+        <Field name="date" placeholder="Case date" component="input"/>
+        </div>
+        <div>
+          <label>
+            Adress:
+        </label>
+        <Field name="adress" placeholder="Case adress" component="input"/>
+        </div>
+        <div>
+          <label for="firstName">
+            First name:
+        </label>
+        <Field name="firstName" placeholder="Client first name" component="input"/>
+        </div>
+        <div>
+          <label>
+            Second name:
+        </label>
+        <Field name="secondName" placeholder="Client second name" component="input"/>
+        </div>
+        <div>
+          <label>
+            Date of birth:
+        </label>
+        <Field name="dob" placeholder="Client date of birth" component="input"/>
+        </div>
+        <div>
+          <label>
+            Description:
+        </label>
+        <Field name="description" placeholder="Some case description" component="textarea"/>
+        </div>
+        <div>
+          <button type="submit">
+            Save
+        </button>
+        </div>
+        </form>
+  )
+}
+
+const LoginReduxForm = reduxForm({form: 'add'})(AddForm);
 
 
 export default Add;
