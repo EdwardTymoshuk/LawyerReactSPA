@@ -5,7 +5,7 @@
     padding: 20px;
     align-content: center;
     display: grid;
-    grid-template-columns: 1fr 1fr 2fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 .header-brand {
 
@@ -16,6 +16,18 @@
 }
 .header-search {
     justify-content: center;
+}
+
+.header-search-visible {
+    width: 150px !important;
+    transition: ease-in .3s;
+}
+.header-search-hiden {
+    opacity: 0;
+    width: 0px !important;
+    transition: ease-in .3s;
+    padding: 0;
+    margin: 0 0 0 -12px;
 }
 .header-login-greating {
     color: #f8e9a1;
