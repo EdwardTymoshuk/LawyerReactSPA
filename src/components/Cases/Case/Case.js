@@ -40,7 +40,7 @@ const Case = (props) => {
   return (
     <div className="case-element">
       <header className="case-element-header">
-        CASE № {props.caseElement._id}
+      <span>CASE №</span> {props.caseElement._id}
       </header>
       <Card>
         <Card.Body>
@@ -49,14 +49,14 @@ const Case = (props) => {
               {(!editMode)
                 ?
                 <ListGroup.Item>
-                  Title:{props.caseElement.title && title}
+                  <span>Title:</span> {props.caseElement.title && title}
                 </ListGroup.Item>
                 :
                 <InputGroup>
                   <InputGroup.Prepend>
                     <InputGroup.Text>Title: </InputGroup.Text>
                   </InputGroup.Prepend>
-                  <FormControl type="text" value={title} onChange={(e) => setFirstName(e.currentTarget.value)} />
+                  <FormControl type="text" value={title} onChange={(e) => setTitle(e.currentTarget.value)} />
                 </InputGroup>
               }
             </ListGroup.Item>
@@ -64,14 +64,14 @@ const Case = (props) => {
               {(!editMode)
                 ?
                 <ListGroup.Item>
-                  Date: {props.caseElement.date && date}
+                  <span>Date:</span> {props.caseElement.date && date}
                 </ListGroup.Item>
                 :
                 <InputGroup>
                   <InputGroup.Prepend>
                     <InputGroup.Text>Date: </InputGroup.Text>
                   </InputGroup.Prepend>
-                  <FormControl type="date" value={date} onChange={(e) => setFirstName(e.currentTarget.value)} />
+                  <FormControl type="text" value={date.split('T')[0]} onChange={(e) => setDate(e.currentTarget.value)} />
                 </InputGroup>
               }
             </ListGroup.Item>
@@ -79,7 +79,7 @@ const Case = (props) => {
               {(!editMode)
                 ?
                 <ListGroup.Item>
-                  Adress: {props.caseElement.adress}
+                  <span>Adress:</span> {props.caseElement.adress}
                 </ListGroup.Item>
                 :
                 <InputGroup>
@@ -94,7 +94,7 @@ const Case = (props) => {
               {(!editMode)
                 ?
                 <ListGroup.Item>
-                  First name: {props.caseElement.firstName && firstName}
+                  <span>First name:</span> {props.caseElement.firstName && firstName}
                 </ListGroup.Item>
                 :
                 <InputGroup>
@@ -109,7 +109,7 @@ const Case = (props) => {
               {(!editMode)
                 ?
                 <ListGroup.Item>
-                  Second name: {props.caseElement.secondName}
+                  <span>Second name:</span> {props.caseElement.secondName}
                 </ListGroup.Item>
                 :
                 <InputGroup>
@@ -124,14 +124,14 @@ const Case = (props) => {
               {(!editMode)
                 ?
                 <ListGroup.Item>
-                  Date of birth: {props.caseElement.dob}
+                  <span>Date of birth:</span> {props.caseElement.dob}
                 </ListGroup.Item>
                 :
                 <InputGroup>
                   <InputGroup.Prepend>
                     <InputGroup.Text>Date of birth: </InputGroup.Text>
                   </InputGroup.Prepend>
-                  <FormControl type="text" value={dob} onChange={(e) => setDob(e.currentTarget.value)} />
+                  <FormControl type="text" value={dob.split('T')[0]} onChange={(e) => setDob(e.currentTarget.value)} />
                 </InputGroup>
               }
             </ListGroup.Item>
@@ -139,7 +139,7 @@ const Case = (props) => {
               {(!editMode)
                 ?
                 <ListGroup.Item>
-                  Description: {props.caseElement.description}
+                  <span>Description:</span> {props.caseElement.description}
                 </ListGroup.Item>
                 :
                 <InputGroup>

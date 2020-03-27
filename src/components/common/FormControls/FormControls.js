@@ -13,3 +13,15 @@ export const Input = ({input, meta, ...props}) => {
         </div>
     )
 }
+
+export const Textarea = ({input, meta, ...props}) => {
+
+    const hasError = meta.touched && meta.error;
+
+    return (
+        <div className={`textarea${hasError ? "error" : ''}`}>
+            <FormControl as="textarea" rows="5" {...input} {...props}/>
+            {hasError && <FormText className="text-muted">{meta.error}</FormText>}
+        </div>
+    )
+}
