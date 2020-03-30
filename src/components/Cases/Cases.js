@@ -39,9 +39,7 @@ const Cases = (props) => {
                         </Card>
                     })
                 }
-                <div>
                 </div>
-            </div>
         </div>
     )
 }

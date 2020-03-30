@@ -1,8 +1,9 @@
-import { casesAPI } from "../api/api";
+import { casesAPI } from '../api/api';
 
 const SET_CASES = 'SET_CASES';
 const ADD_CASE = 'ADD_CASE';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
+const SEARCH_CASE = 'SEARCH_CASE';
 
 let initialState = {
   cases: [],
@@ -27,7 +28,7 @@ const casesReducer = (state = initialState, action) => {
       return state;
   }
 }
-export const setCases = (cases) => ({ type: SET_CASES, cases });
+export const setCases = (cases = initialState.cases) => ({ type: SET_CASES, cases });
 export const addCase = (newCase) => ({ type: ADD_CASE, newCase });
 export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isFetching });
 
@@ -39,18 +40,29 @@ export const getCases = () => async (dispatch) => {
 }
 export const uploadCase = (newCase) => async (dispatch) => {
   await casesAPI.addCaseElement(newCase);
-  try { 
-    alert("New case was successfully added!") 
-  } catch(err) {
-    alert({message: err})
+  try {
+    alert("New case was successfully added!")
+  } catch (err) {
+    alert({ message: err })
   }
   dispatch(addCase(newCase));
 }
-
 export const deleteCaseElement = (caseId) => async (dispatch) => {
   let response = await casesAPI.deleteCaseElement(caseId);
   if (response.status === 200) alert('The case was succesfully deleted!');
   dispatch(getCases());
+}
+export const searchCase = (searchingCase) => async (dispatch) => {
+  let data = await casesAPI.getCases();
+  (searchingCase !== '')
+  ?
+  dispatch(setCases(data.filter(item => {
+    if (item.firstName.toLowerCase().includes(searchingCase.toLowerCase())
+      || item.secondName.toLowerCase().includes(searchingCase.toLowerCase())
+      || item.title.toLowerCase().includes(searchingCase.toLowerCase())) { return item }
+  })))
+  :
+  dispatch(setCases(data))
 }
 
 export default casesReducer;

@@ -10,6 +10,7 @@ class CasesContainer extends React.Component {
     componentDidMount() {
        if (!this.props.cases.length) this.props.getCases();
     }
+
      render() {
         return <>
             {this.props.isFetching ? <Preloader />  : null }

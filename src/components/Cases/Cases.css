@@ -24,6 +24,14 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
 }
+.cases-body-error {
+    width: 100%;
+    height: auto;
+}
+.cases-body-error span{
+    font-size: 10em;
+    color: red;
+}
 .cases-body .card {
     margin: 25px;
 } 
