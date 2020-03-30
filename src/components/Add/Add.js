@@ -1,7 +1,9 @@
 import React from 'react';
 import './Add.css';
-import { Modal, Button} from 'react-bootstrap';
+import { Modal, Button, Form, FormGroup, FormLabel} from 'react-bootstrap';
 import {reduxForm, Field} from 'redux-form';
+import { Input, Textarea } from '../common/FormControls/FormControls';
+import { required } from '../../utils/validators/validators';
 
 const Add = (props) => {
 
@@ -35,55 +37,39 @@ const Add = (props) => {
 
 const AddForm = (props) => {
   return (
-  <form onSubmit={props.handleSubmit}>
-        <div>
-          <label>
-           Title:
-        </label>
-          <Field name="title" placeholder="Case title" component="input"/>
-        </div>
-        <div>
-          <label>
-           Date:
-        </label>
-        <Field name="date" placeholder="Case date" component="input"/>
-        </div>
-        <div>
-          <label>
-            Adress:
-        </label>
-        <Field name="adress" placeholder="Case adress" component="input"/>
-        </div>
-        <div>
-          <label for="firstName">
-            First name:
-        </label>
-        <Field name="firstName" placeholder="Client first name" component="input"/>
-        </div>
-        <div>
-          <label>
-            Second name:
-        </label>
-        <Field name="secondName" placeholder="Client second name" component="input"/>
-        </div>
-        <div>
-          <label>
-            Date of birth:
-        </label>
-        <Field name="dob" placeholder="Client date of birth" component="input"/>
-        </div>
-        <div>
-          <label>
-            Description:
-        </label>
-        <Field name="description" placeholder="Some case description" component="textarea"/>
-        </div>
-        <div>
-          <button type="submit">
+  <Form onSubmit={props.handleSubmit}>
+        <FormGroup>
+          <FormLabel>Title:</FormLabel>
+          <Field name="title" placeholder="Case title" component={Input}/>
+          </FormGroup>
+          <FormGroup>
+          <FormLabel>Date:</FormLabel>
+        <Field name="date" placeholder="Case date" component={Input}/>
+        </FormGroup>
+        <FormGroup>
+          <FormLabel>Adress:</FormLabel>
+        <Field name="adress" placeholder="Case adress" component={Input}/>
+        </FormGroup>
+        <FormGroup>
+          <FormLabel>First Name *:</FormLabel>
+        <Field validate={[required]} name="firstName" placeholder="Client first name" component={Input}/>
+        </FormGroup>
+        <FormGroup>
+          <FormLabel>Second Name *:</FormLabel>
+        <Field validate={[required]} name="secondName" placeholder="Client second name" component={Input}/>
+        </FormGroup>
+        <FormGroup>
+          <FormLabel>Date of Birth:</FormLabel>
+        <Field name="dob" placeholder="Client date of birth" component={Input}/>
+        </FormGroup>
+        <FormGroup>
+          <FormLabel>Description:</FormLabel>
+        <Field name="description" placeholder="Some case description" component={Textarea}/>
+        </FormGroup>
+          <Button type="submit">
             Save
-        </button>
-        </div>
-        </form>
+        </Button>
+        </Form>
   )
 }
 

@@ -42,9 +42,15 @@
     }
 }
 
-@media only screen and (min-width: 320px) and (max-width: 768px) {
+@media only screen and (min-width: 640px) and (max-width: 768px) {
     .cases-body {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
     }
   }
+@media only screen and (max-width: 639px) {
+    .cases-body {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}

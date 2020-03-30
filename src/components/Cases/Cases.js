@@ -22,14 +22,14 @@ const Cases = (props) => {
                     props.cases.map((item) => {
                         return <Card key={item._id}>
                             <Card.Header>
-                                No of case: {item._id}
+                                <span>No of case:</span> {item._id}
                             </Card.Header>
                             <ListGroup className="list-group-flush">
-                                <ListGroupItem>Title: {item.title}</ListGroupItem>
-                                <ListGroupItem>Date: {item.date}</ListGroupItem>
-                                <ListGroupItem>First name: {item.firstName}</ListGroupItem>
-                                <ListGroupItem>Second name: {item.secondName}</ListGroupItem>
-                                <ListGroupItem>Adress: {item.adress}</ListGroupItem>
+                                <ListGroupItem><span>Title:</span> {item.title}</ListGroupItem>
+                                <ListGroupItem><span>Date:</span> {item.date.split('T')[0]}</ListGroupItem>
+                                <ListGroupItem><span>First name:</span> {item.firstName}</ListGroupItem>
+                                <ListGroupItem><span>Second name:</span> {item.secondName}</ListGroupItem>
+                                <ListGroupItem><span>Adress:</span> {item.adress}</ListGroupItem>
                             </ListGroup>
                             <Card.Body>
                                 <ButtonGroup>
