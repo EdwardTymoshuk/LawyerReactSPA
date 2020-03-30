@@ -17,22 +17,8 @@
 .header-search {
     justify-content: center;
 }
-<<<<<<< HEAD
 .header-search-btn {
     margin: 10px;
-=======
-
-.header-search-visible {
-    width: 150px !important;
-    transition: ease-in .3s;
-}
-.header-search-hiden {
-    opacity: 0;
-    width: 0px !important;
-    transition: ease-in .3s;
-    padding: 0;
-    margin: 0 0 0 -12px;
->>>>>>> 08f07972f991d5246b0d9482685465b410e88742
 }
 .header-login-greating {
     color: #f8e9a1;
