@@ -20,6 +20,10 @@
 .header-search-btn {
     margin: 10px;
 }
+.header-search-disabled {
+    cursor: not-allowed;
+}
+
 .header-login-greating {
     color: #f8e9a1;
     padding: 5px;

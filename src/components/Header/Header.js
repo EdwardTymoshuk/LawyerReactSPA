@@ -34,11 +34,9 @@ const Header = (props) => {
               value={searchingElement}
             />
             :
-            <FormControl
+            <FormControl className="header-search-disabled"
               disabled
             />
-
-
         }
         <Button className="header-search-btn" onClick={searchCase}>Search</Button>
       </Form>
