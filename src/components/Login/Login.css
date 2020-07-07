@@ -7,6 +7,10 @@
     width:50%;
     justify-self: center;
 }
+.login-form-error {
+    display: block;
+    font-size: 1rem;
+}
 .login-header {
     font-size: 3em;
     color: #2E1114;

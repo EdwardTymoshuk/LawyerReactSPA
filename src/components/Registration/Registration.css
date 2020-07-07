@@ -1,0 +1,21 @@
+.registration-form-error {
+    display: block;
+    font-size: 1rem;
+}
+.registration-message {
+    min-height: 100vh;
+}
+.registration-message-container {
+    height: 100vh;
+    display: grid;
+    align-content: center;
+}
+.registration-message strong{
+    color: #f76c6c;
+}
+.registration-message-header {
+    font-size: 3em;
+}
+.registration-message-span {
+    font-size: 1.5em;
+}

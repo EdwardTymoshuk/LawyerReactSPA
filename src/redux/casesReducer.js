@@ -3,7 +3,6 @@ import { casesAPI } from '../api/api';
 const SET_CASES = 'SET_CASES';
 const ADD_CASE = 'ADD_CASE';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
-const SEARCH_CASE = 'SEARCH_CASE';
 
 let initialState = {
   cases: [],
@@ -59,7 +58,11 @@ export const searchCase = (searchingCase) => async (dispatch) => {
   dispatch(setCases(data.filter(item => {
     if (item.firstName.toLowerCase().includes(searchingCase.toLowerCase())
       || item.secondName.toLowerCase().includes(searchingCase.toLowerCase())
-      || item.title.toLowerCase().includes(searchingCase.toLowerCase())) { return item }
+      || item.title.toLowerCase().includes(searchingCase.toLowerCase())) { 
+        return item 
+      } else {
+        return ''
+      }
   })))
   :
   dispatch(setCases(data))

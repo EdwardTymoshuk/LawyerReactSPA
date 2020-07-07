@@ -1,18 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { setLoginData } from '../../redux/authReducer';
 import Login from './Login';
 
-class LoginContainer extends React.Component {
-  setLogin = (email, password) => {
-    this.props.setLoginData(email, password);
-  }
-  render() {
-    return (
-      <Login {...this.props} setLogin={this.setLogin}/>
+const LoginContainer = (props) => {
+
+  const [loginError, setLoginError] = useState()
+
+  const setLogin = (email, password) => {
+    props.setLoginData(email, password).then(response => 
+      setLoginError(response)
     )
   }
-}
+  return (
+      <Login {...props} setLogin={setLogin} loginError={loginError}/>
+    )
+  }
 let mapStateToProps = (state) => ({
   isAuth: state.auth.isAuth
   

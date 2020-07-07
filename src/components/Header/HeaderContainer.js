@@ -19,7 +19,7 @@ componentDidMount() {
 }
   render() {
     return (
-      <Header {...this.props} logOut={this.logOut} searchCase={this.searchCase}/>
+      <Header {...this.props} logOut={this.logOut} searchCase={this.searchCase} />
     )
   }
 }

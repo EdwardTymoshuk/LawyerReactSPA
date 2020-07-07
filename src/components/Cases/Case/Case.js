@@ -131,7 +131,7 @@ const Case = (props) => {
                   <InputGroup.Prepend>
                     <InputGroup.Text>Date of birth: </InputGroup.Text>
                   </InputGroup.Prepend>
-                  <FormControl type="text" value={dob && dob.split('T')[0]} onChange={(e) => setDob(e.currentTarget.value)} />
+                  <FormControl type="text" value={(dob && dob.split('T')[0]) || ''} onChange={(e) => setDob(e.currentTarget.value)} />
                 </InputGroup>
               }
             </ListGroup.Item>

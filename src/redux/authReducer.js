@@ -3,11 +3,13 @@ import {loginAPI} from '../api/api'
 const SET_USER_DATA = 'SET_USER_DATA';
 const SET_LOGOUT = 'SET_LOGOUT';
 const SET_AUTH_ME = 'SET_AUTH_ME';
+const SET_REGISTER_VALIDATE = 'SET_REGISTER_VALIDATE';
 
 let initialState = {
   name: null,
   email: null,
-  isAuth: false
+  isAuth: false,
+  registerValidate: false
 }
 
 const authReducer = (state = initialState, action) => {
@@ -25,12 +27,18 @@ const authReducer = (state = initialState, action) => {
         ...state,
         name: null,
         email: null,
-        isAuth: false
+        isAuth: false,
+        registerValidate: false
       }
     }
     case SET_AUTH_ME: {
       return {
         ...state
+      }
+    }
+    case SET_REGISTER_VALIDATE: {
+      return {
+        ...state, registerValidate: true
       }
     }
     default:
@@ -40,14 +48,22 @@ const authReducer = (state = initialState, action) => {
 
 export const setAuthUserData = (name, email) => ({ type: SET_USER_DATA, name, email});
 export const logOut = () => ({type: SET_LOGOUT});
-export const authMe = () => ({type: SET_AUTH_ME})
+export const authMe = () => ({type: SET_AUTH_ME});
+export const setRegisterValidate = () => ({type: SET_REGISTER_VALIDATE});
 export const setLoginData = (email, password) => async (dispatch) => {
-    let response = await loginAPI.loginMe({email, password});
     try {
+        let response = await loginAPI.loginMe({email, password})
         dispatch(setAuthUserData(response.data.name, response.data.email));
-        alert('You`re loged in!')
       } catch(err) { 
-        alert({message: err})
+        return(err.response.data)
     }
+}
+export const setNewUserData = (name, email, password) => async (dispatch) => {
+  try {
+    await loginAPI.registerMe(name, email, password)
+    dispatch(setRegisterValidate());
+  } catch(err) {
+    return(err.response.data)
+  }
 }
 export default authReducer;

@@ -5,6 +5,7 @@
     align-content: flex-start;
 }
 .cases-header {
+    width: 100vw;
     font-size: 3em;
     color: #2E1114;
     padding: 25px 0;
