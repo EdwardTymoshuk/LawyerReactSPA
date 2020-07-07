@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.css": "/LawyerReactSPA/static/css/main.b9e74925.chunk.css",
+    "main.js": "/LawyerReactSPA/static/js/main.eb945f62.chunk.js",
+    "main.js.map": "/LawyerReactSPA/static/js/main.eb945f62.chunk.js.map",
+    "runtime-main.js": "/LawyerReactSPA/static/js/runtime-main.f86e5938.js",
+    "runtime-main.js.map": "/LawyerReactSPA/static/js/runtime-main.f86e5938.js.map",
+    "static/css/2.47e06e2e.chunk.css": "/LawyerReactSPA/static/css/2.47e06e2e.chunk.css",
+    "static/js/2.59bf5472.chunk.js": "/LawyerReactSPA/static/js/2.59bf5472.chunk.js",
+    "static/js/2.59bf5472.chunk.js.map": "/LawyerReactSPA/static/js/2.59bf5472.chunk.js.map",
+    "static/css/3.3db4cf8d.chunk.css": "/LawyerReactSPA/static/css/3.3db4cf8d.chunk.css",
+    "static/js/3.acfd93cb.chunk.js": "/LawyerReactSPA/static/js/3.acfd93cb.chunk.js",
+    "static/js/3.acfd93cb.chunk.js.map": "/LawyerReactSPA/static/js/3.acfd93cb.chunk.js.map",
+    "static/css/4.48d28976.chunk.css": "/LawyerReactSPA/static/css/4.48d28976.chunk.css",
+    "static/js/4.5d83d081.chunk.js": "/LawyerReactSPA/static/js/4.5d83d081.chunk.js",
+    "static/js/4.5d83d081.chunk.js.map": "/LawyerReactSPA/static/js/4.5d83d081.chunk.js.map",
+    "static/js/5.87547bc4.chunk.js": "/LawyerReactSPA/static/js/5.87547bc4.chunk.js",
+    "static/js/5.87547bc4.chunk.js.map": "/LawyerReactSPA/static/js/5.87547bc4.chunk.js.map",
+    "index.html": "/LawyerReactSPA/index.html",
+    "precache-manifest.836e3deef62ffb4d872d989e012f24c0.js": "/LawyerReactSPA/precache-manifest.836e3deef62ffb4d872d989e012f24c0.js",
+    "service-worker.js": "/LawyerReactSPA/service-worker.js",
+    "static/css/2.47e06e2e.chunk.css.map": "/LawyerReactSPA/static/css/2.47e06e2e.chunk.css.map",
+    "static/css/3.3db4cf8d.chunk.css.map": "/LawyerReactSPA/static/css/3.3db4cf8d.chunk.css.map",
+    "static/css/4.48d28976.chunk.css.map": "/LawyerReactSPA/static/css/4.48d28976.chunk.css.map",
+    "static/css/main.b9e74925.chunk.css.map": "/LawyerReactSPA/static/css/main.b9e74925.chunk.css.map",
+    "static/js/2.59bf5472.chunk.js.LICENSE": "/LawyerReactSPA/static/js/2.59bf5472.chunk.js.LICENSE",
+    "static/media/preloader.svg": "/LawyerReactSPA/static/media/preloader.b71c9e01.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f86e5938.js",
+    "static/css/2.47e06e2e.chunk.css",
+    "static/js/2.59bf5472.chunk.js",
+    "static/css/main.b9e74925.chunk.css",
+    "static/js/main.eb945f62.chunk.js"
+  ]
+}
