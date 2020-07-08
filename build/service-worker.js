@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/LawyerReactSPA/precache-manifest.836e3deef62ffb4d872d989e012f24c0.js"
+  "/LawyerReactSPA/precache-manifest.46abd8722e8647dd162a3671a0b1ece1.js"
 );
 
 self.addEventListener('message', (event) => {

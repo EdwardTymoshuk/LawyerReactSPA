@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "50ce582d36841898cd43b3f78d94e625",
+    "revision": "c56c8c4744f29dc5c5f08e2b2c519c24",
     "url": "/LawyerReactSPA/index.html"
   },
   {
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/LawyerReactSPA/static/css/4.48d28976.chunk.css"
   },
   {
-    "revision": "f4ebade2841a35b34941",
+    "revision": "f8588c04a3aa9fe58ea9",
     "url": "/LawyerReactSPA/static/css/main.b9e74925.chunk.css"
   },
   {
@@ -40,8 +40,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/LawyerReactSPA/static/js/5.87547bc4.chunk.js"
   },
   {
-    "revision": "f4ebade2841a35b34941",
-    "url": "/LawyerReactSPA/static/js/main.eb945f62.chunk.js"
+    "revision": "f8588c04a3aa9fe58ea9",
+    "url": "/LawyerReactSPA/static/js/main.8fdba134.chunk.js"
   },
   {
     "revision": "24ef12597e7cc8989a4b",

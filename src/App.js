@@ -15,12 +15,12 @@ const App = () => {
     <div className="App">
       <HeaderContainer />
      <Switch>
-        <Route exact path="LawyerReactSPA/" render={() => <Redirect to="/cases" />} />
-        <Route exact path="LawyerReactSPA/cases" render={() => <CasesContainer />} />
-        <Route path="LawyerReactSPA/login" render={() => <LoginContainer />} />
-        <Route path="LawyerReactSPA/registration" render={() => <Suspense fallback={<Preloader />}><RegistrationContainer /></Suspense>} />
-        <Route path="LawyerReactSPA/success-registration" render={() => <Suspense fallback={<Preloader />}><RegistrationMessage /></Suspense>} />
-        <Route path="LawyerReactSPA/cases/:caseId" render={() => <Suspense fallback={<Preloader />}><CaseContainer /></Suspense>} />
+        <Route exact path="/" render={() => <Redirect to="/cases" />} />
+        <Route exact path="/cases" render={() => <CasesContainer />} />
+        <Route path="/login" render={() => <LoginContainer />} />
+        <Route path="/registration" render={() => <Suspense fallback={<Preloader />}><RegistrationContainer /></Suspense>} />
+        <Route path="/success-registration" render={() => <Suspense fallback={<Preloader />}><RegistrationMessage /></Suspense>} />
+        <Route path="/cases/:caseId" render={() => <Suspense fallback={<Preloader />}><CaseContainer /></Suspense>} />
       </Switch>
     </div>
 
