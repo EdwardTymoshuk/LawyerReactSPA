@@ -22,7 +22,7 @@ const Header = (props) => {
     push('/')
   }
   return (
-    <Navbar expand="lg" variant="dark" fixed="top" className="header">
+    <Navbar expand="lg" variant="dark" className="header">
       <Navbar.Brand className="header-brand" >LAWYER REACT APP</Navbar.Brand>
       <Nav.Link className="header-cases"><Button onClick={setCases}>Cases</Button></Nav.Link>
       <Form inline className="header-search">
