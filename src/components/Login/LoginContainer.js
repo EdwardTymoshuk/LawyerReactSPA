@@ -8,7 +8,7 @@ const LoginContainer = (props) => {
   const [loginError, setLoginError] = useState()
 
   const setLogin = (email, password) => {
-    props.setLoginData(email, password).then(response => 
+    props.setLoginData({email, password}).then(response => 
       setLoginError(response)
     )
   }

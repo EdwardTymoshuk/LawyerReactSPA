@@ -27,6 +27,7 @@ const casesReducer = (state = initialState, action) => {
       return state;
   }
 }
+
 export const setCases = (cases = initialState.cases) => ({ type: SET_CASES, cases });
 export const addCase = (newCase) => ({ type: ADD_CASE, newCase });
 export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isFetching });

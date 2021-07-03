@@ -27,4 +27,4 @@ let mapStateToProps = (state) => ({
     deleteCaseElement: state.caseElementPage.deleteCaseElement
 })
 
-export default compose(withAuthRedirect, connect(mapStateToProps, {getCaseElement, updateCaseElement, deleteCaseElement}), withRouter)(CaseContainer);
+export default compose(connect(mapStateToProps, {getCaseElement, updateCaseElement, deleteCaseElement}), withRouter)(CaseContainer);

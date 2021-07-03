@@ -1,0 +1,56 @@
+.drag-drop_container {
+
+}
+.drag-drop_dropzone {
+    height: 100px;
+    border: 2px dashed #000;
+    display: grid;
+    align-items: center;
+    opacity: .2;
+}
+.drag-drop_dropzone:hover,
+.drag-drop_dropzone:active,
+.drag-drop_dropzone:focus,
+.drag-drop_dropzone:visited {
+    outline: none;
+    opacity: 1;
+}
+.drag-drop_dropzone-hover {
+    height: 100px;
+    border: 2px dashed #000;
+    display: grid;
+    align-items: center;
+    opacity: 1;
+}
+.drag-drop_dropzone p,
+.drag-drop_dropzone-hover p {
+    margin: 0;
+    text-align: center;
+}
+.drag-drop_thumbs-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 16px
+}
+.drag-drop_thumb {
+    display: inline-flex;
+    border-radius: 2px;
+    border: 1px solid #eaeaea;
+    margin-bottom: 8px;
+    margin-right: 8px;
+    width: 100px;
+    height: 100px;
+    padding: 4px;
+    box-sizing: border-box
+  }
+  .drag-drop_thumb-inner {
+    display: flex;
+    min-width: 0;
+    overflow: hidden
+  }
+  .drag-drop_img-preview {
+    display: block;
+    width: auto;
+    height: 100%
+  }
