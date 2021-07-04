@@ -10,12 +10,13 @@ const Header = (props) => {
   const [searchingElement, setSearchingElement] = useState('')
 
   const handleChange = (e) => {
+    console.log(props)
     setSearchingElement(e.target.value)
     let searchingCaseElement = e.target.value
-    props.searchCase(searchingCaseElement)
+    props.searchCase(searchingCaseElement, props.cases)
   }
   const searchCase = () => {
-    props.searchCase(searchingElement)
+    props.searchCase(searchingElement, props.cases)
     setSearchingElement('')
   }
   return (

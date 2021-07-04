@@ -11,7 +11,7 @@ import { useEffect } from 'react';
         console.log(cases)
         useEffect(() => {
             props.getCases()
-        },[cases.length])
+        },[])
         return (
             <>
             {isFetching ? <Preloader />  : null }

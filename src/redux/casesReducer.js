@@ -42,6 +42,7 @@ export const uploadCase = (newCase) => async (dispatch) => {
   await casesAPI.addCaseElement(newCase);
   try {
     alert("New case was successfully added!")
+    dispatch(getCases())
   } catch (err) {
     alert({ message: err })
   }
