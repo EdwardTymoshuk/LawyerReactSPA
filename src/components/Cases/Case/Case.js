@@ -64,7 +64,7 @@ const Case = (props) => {
               {(!editMode)
                 ?
                 <ListGroup.Item>
-                  <span>Date:</span> {props.caseElement.date && date}
+                  <span>Date:</span> {props.caseElement.date && props.caseElement.date.split('T')[0]}
                 </ListGroup.Item>
                 :
                 <InputGroup>
@@ -124,7 +124,7 @@ const Case = (props) => {
               {(!editMode)
                 ?
                 <ListGroup.Item>
-                  <span>Date of birth:</span> {props.caseElement.dob}
+                  <span>Date of birth:</span> {props.caseElement.dob && props.caseElement.dob.split('T')[0]}
                 </ListGroup.Item>
                 :
                 <InputGroup>

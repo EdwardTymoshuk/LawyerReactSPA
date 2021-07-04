@@ -29,6 +29,7 @@ const LoginReduxFrom = (props) => {
 //     console.log(values)
 //     props.addCase(values)
 // }
+
   return (
     <Form onSubmit={props.handleSubmit(values => props.addCase(values))}>
           <FormGroup>
@@ -59,10 +60,10 @@ const LoginReduxFrom = (props) => {
             <FormLabel>Description:</FormLabel>
           <Field name="description" placeholder="Some case description" component={Textarea} />
           </FormGroup>
-          {/* <FormGroup>
+          <FormGroup>
           <FormLabel>Files:</FormLabel>
-          <Field name="files" multiple component={FileInput} />
-          </FormGroup> */}
+          <Field name="files" multiple component={FileInput} id="file-uploader"/>
+          </FormGroup>
             <Button type="submit">
               Save
           </Button>

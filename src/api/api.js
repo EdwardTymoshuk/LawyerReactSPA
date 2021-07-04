@@ -29,7 +29,6 @@ export const casesAPI = {
 
 export const loginAPI = {
     loginMe({email, password}) {
-        console.log(email, password)
         return instance.post('/users/login', {email, password})
     },
     registerMe(name, email, password) {

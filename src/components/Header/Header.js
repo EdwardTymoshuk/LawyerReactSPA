@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Header.css';
 import { Navbar, Form, FormControl, Button, Nav } from 'react-bootstrap';
 import { useHistory } from 'react-router'
+import { Link } from 'react-router-dom';
 
 const Header = (props) => {
 
@@ -17,14 +18,10 @@ const Header = (props) => {
     props.searchCase(searchingElement)
     setSearchingElement('')
   }
-  const setCases = () => {
-    props.setCases()
-    push('/')
-  }
   return (
     <Navbar expand="lg" variant="dark" className="header">
       <Navbar.Brand className="header-brand" >LAWYER REACT APP</Navbar.Brand>
-      <Nav.Link className="header-cases"><Button onClick={setCases}>Cases</Button></Nav.Link>
+      <Link to="/cases"><Button>Cases</Button></Link>
       <Form inline className="header-search">
         {
           props.isAuth
@@ -44,7 +41,7 @@ const Header = (props) => {
       <Nav.Link className="header-login">
         {props.isAuth
           ? <div><div className="header-login-greating">Nice to see you, {props.name}!</div><Button className="header-logout-btn" onClick={props.logOut}>Logout</Button></div>
-          : <Button className="header-login-btn" onClick={() => push('/login')}>Login</Button>}
+          : <Link to='/login'><Button className="header-login-btn">Login</Button></Link>}
       </Nav.Link>
     </Navbar>
   )

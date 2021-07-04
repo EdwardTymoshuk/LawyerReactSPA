@@ -9,6 +9,7 @@ const Add = (props) => {
     props.onHide()
     props.uploadCase({ title, date, adress, firstName, secondName, dob, description, _owner: props.name })
   }
+
   return (
     <Modal
       {...props}
