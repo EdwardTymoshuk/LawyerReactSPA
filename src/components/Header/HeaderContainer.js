@@ -1,33 +1,28 @@
-import React from 'react';
-import Header from './Header';
-import {connect} from 'react-redux';
-import {authMe, logOut} from '../../redux/authReducer';
-import {searchCase, setCases} from '../../redux/casesReducer';
+import React from 'react'
+import Header from './Header'
+import { connect } from 'react-redux'
+import { authMe, logOut } from '../../redux/authReducer'
+import { searchCase, setCases } from '../../redux/casesReducer'
 
-class HeaderContainer extends React.Component {
-  logOut = () => {
-    this.props.logOut();
+const HeaderContainer = (props) => {
+
+  const logOut = () => {
+    props.logOut()
   }
-  searchCase = (searchingElement, cases) => {
-    console.log(cases)
-    this.props.searchCase(searchingElement, cases)
+  
+  const searchCase = (searchingElement, cases) => {
+    props.searchCase(searchingElement, cases)
   }
-  setCases = () => {
-    this.props.setCases();
-  }
-componentDidMount() {
-    this.props.authMe();
+
+  return (
+    <Header {...props} logOut={logOut} searchCase={searchCase} cases={props.cases} isAuth={props.isAuth} />
+  )
 }
-  render() {
-    return (
-      <Header {...this.props} logOut={this.logOut} searchCase={this.searchCase} cases={this.props.cases}/>
-    )
-  }
-}
+
 const mapStateToProps = (state) => ({
   isAuth: state.auth.isAuth,
   name: state.auth.name,
   cases: state.casesPage.cases
 })
-  
-export default connect(mapStateToProps, {authMe, logOut, searchCase, setCases})(HeaderContainer);
+
+export default connect(mapStateToProps, { authMe, logOut, searchCase, setCases })(HeaderContainer)

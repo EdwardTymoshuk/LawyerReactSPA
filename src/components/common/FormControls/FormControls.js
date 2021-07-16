@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import './FormControls.css';
-import {FormControl, FormText} from 'react-bootstrap';
-
+import React, { useState, useEffect } from 'react'
+import './FormControls.css'
+import {FormControl, FormText} from 'react-bootstrap'
 import '../../common/DragDrop/DragDrop.css'
 import { useDropzone } from 'react-dropzone'
 

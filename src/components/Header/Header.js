@@ -1,16 +1,13 @@
-import React, { useState } from 'react';
-import './Header.css';
-import { Navbar, Form, FormControl, Button, Nav } from 'react-bootstrap';
-import { useHistory } from 'react-router'
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react'
+import './Header.css'
+import { Navbar, Form, FormControl, Button, Nav } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 const Header = (props) => {
 
-  const {push} = useHistory()
   const [searchingElement, setSearchingElement] = useState('')
 
   const handleChange = (e) => {
-    console.log(props)
     setSearchingElement(e.target.value)
     let searchingCaseElement = e.target.value
     props.searchCase(searchingCaseElement, props.cases)
@@ -48,4 +45,4 @@ const Header = (props) => {
   )
 }
 
-export default Header;
+export default Header

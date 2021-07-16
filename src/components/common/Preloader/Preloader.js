@@ -1,5 +1,5 @@
-import React from 'react';
-import preloader from '../../../assets/images/preloader.svg';
+import React from 'react'
+import preloader from '../../../assets/images/preloader.svg'
 
 const Preloader = (props) => {
     return (
@@ -9,4 +9,4 @@ const Preloader = (props) => {
     )
 }
 
-export default Preloader;
+export default Preloader

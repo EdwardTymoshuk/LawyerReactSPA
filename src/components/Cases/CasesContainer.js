@@ -1,23 +1,23 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import {compose} from 'redux';
-import { getCases } from '../../redux/casesReducer';
-import Cases from './Cases';
-import Preloader from '../common/Preloader/Preloader';
-import {withAuthRedirect} from '../../hoc/withAuthRedirect';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
+import { compose } from 'redux'
+import { getCases } from '../../redux/casesReducer'
+import Cases from './Cases'
+import Preloader from '../common/Preloader/Preloader'
+import { withAuthRedirect } from '../../hoc/withAuthRedirect'
 
-    const CasesContainer = ({cases, isAuth, name, isFetching, ...props}) => {
-        console.log(cases)
-        useEffect(() => {
-            props.getCases()
-        },[])
-        return (
-            <>
-            {isFetching ? <Preloader />  : null }
+const CasesContainer = ({ cases, isAuth, name, isFetching, ...props }) => {
+
+    useEffect(() => {
+        props.getCases()
+    }, [])
+    
+    return (
+        <>
+            {isFetching ? <Preloader /> : null}
             <Cases cases={cases} isAuth={isAuth} name={name} />
-            </>
-        )
+        </>
+    )
 }
 
 let mapStateToProps = (state) => {
@@ -27,7 +27,6 @@ let mapStateToProps = (state) => {
         isAuth: state.auth.isAuth,
         name: state.auth.name
     }
-    
 }
 
-export default compose(connect(mapStateToProps, {getCases}), withAuthRedirect)(CasesContainer);
+export default compose(connect(mapStateToProps, { getCases }), withAuthRedirect)(CasesContainer)

@@ -4,6 +4,7 @@ import { Modal, Button } from 'react-bootstrap'
 import AddForm from './AddForm'
 
 const Add = (props) => {
+  
   const addCase = (values) => {
     const { title, date, adress, firstName, secondName, dob, description } = values
     props.onHide()
