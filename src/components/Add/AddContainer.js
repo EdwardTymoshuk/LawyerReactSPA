@@ -5,7 +5,7 @@ import { uploadCase } from '../../redux/casesReducer'
 
 const AddContainer = (props) => {
     return (
-        <Add name={props.name} uploadCase={props.uploadCase} show={props.show} cases={props.cases} />
+        <Add name={props.name} uploadCase={props.uploadCase} show={props.show} onHide={props.onHide} cases={props.cases} />
     )
 }
 

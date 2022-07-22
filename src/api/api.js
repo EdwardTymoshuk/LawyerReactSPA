@@ -2,8 +2,12 @@ import * as axios from 'axios'
 
 const instance = axios.create({
     baseURL: 'https://historic-zion-50119.herokuapp.com/',
+    baseURL: 'http://localhost:3001',
     headers: {
-        'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTU2OGI3ZGVhNWE4MzQxM2U0M2RjMTIiLCJpYXQiOjE1ODMwODU3NDN9.xX8_VysEZVWlYVLItbV-Azk88ZT772zjyn0PxyZ0x9Q'
+        'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTU2OGI3ZGVhNWE4MzQxM2U0M2RjMTIiLCJpYXQiOjE1ODMwODU3NDN9.xX8_VysEZVWlYVLItbV-Azk88ZT772zjyn0PxyZ0x9Q',
+        'Access-Control-Allow-Origin': '*',
+'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
     }
 })
 
@@ -26,9 +30,10 @@ export const casesAPI = {
     }
 }
 
+
 export const loginAPI = {
-    loginMe({ email, password }) {
-        return instance.post('/users/login', { email, password })
+    loginMe(email, password) {
+        return instance.post('/users/login', email, password)
     },
     registerMe(name, email, password) {
         return instance.post('/users/register', { name, email, password })

@@ -52,7 +52,7 @@ export const authMe = () => ({ type: SET_AUTH_ME })
 export const setRegisterValidate = () => ({ type: SET_REGISTER_VALIDATE })
 export const setLoginData = (email, password) => async (dispatch) => {
   try {
-    let response = await loginAPI.loginMe({ email, password })
+    let response = await loginAPI.loginMe({email, password})
     dispatch(setAuthUserData(response.data.name, response.data.email))
   } catch (err) {
     return err

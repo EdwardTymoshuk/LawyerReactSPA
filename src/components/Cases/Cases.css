@@ -7,8 +7,12 @@
     background-color: transparent;
     color: #2E1114;
     transition: ease-in-out .4s;
+    width: fit-content;
+    justify-self: center;
 }
-.cases-btn:hover {
+.cases-btn:hover,
+.cases-btn:active
+ {
     background: transparent !important;
     transform: rotate(180deg);
     color: #3b945e;
